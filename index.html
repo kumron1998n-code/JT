@@ -3384,12 +3384,12 @@ exports.qrToImageData = function qrToImageData (imgData, qr, opts) {
 
   .lp-stage{ display:flex; align-items:flex-start; justify-content:center; padding:34px 20px; background:var(--paper, #f3f3f5); }
   .lp-label{
-    width:380px; background:var(--lp-paper); border-radius:6px;
+    width:400px; background:var(--panel); border-radius:16px;
     box-shadow:0 20px 50px rgba(28,31,38,0.16), 0 4px 14px rgba(28,31,38,0.08);
-    position:relative; overflow:hidden; font-family:'Kanit',sans-serif; color:var(--lp-ink);
+    position:relative; overflow:hidden; font-family:'Kanit',sans-serif; color:var(--ink);
   }
-  .lp-label::before{ content:""; position:absolute; inset:9px; border:1.5px dashed var(--lp-line); border-radius:3px; pointer-events:none; z-index:0; }
-  .lp-label-inner{ position:relative; z-index:1; padding:19px 19px 15px; }
+  .lp-label .modal-body{ padding-left:22px; padding-right:22px; padding-bottom:22px; }
+  .lp-label .modal-barcode-box{ margin-bottom:16px; }
 
   .lp-top{ display:flex; align-items:flex-start; justify-content:space-between; gap:10px; }
   .lp-brand{ font-family:'Prompt',sans-serif; font-style:italic; font-weight:800; font-size:18px; line-height:1.1; }
@@ -3587,51 +3587,34 @@ exports.qrToImageData = function qrToImageData (imgData, qr, opts) {
 
         <div class="lp-stage">
           <div class="lp-label" id="lpLabel">
-            <div class="lp-label-inner">
-              <div class="lp-top">
-                <div>
-                  <div class="lp-brand" id="lpp-brand">ร้านของคุณ</div>
-                  <div class="lp-brand-sub">ใบปะหน้าพัสดุ · SHIPPING LABEL</div>
-                </div>
-                <div class="lp-svc" id="lpp-service">มาตรฐาน</div>
-              </div>
+            <div class="modal-head" style="position:static;">
+              <button class="modal-close" style="visibility:hidden;">✕</button>
+              <span class="status-badge badge-transit" id="lpp-service">มาตรฐาน</span>
+              <div class="modal-tracking" id="lpp-tracking">-</div>
+              <div class="modal-sub" id="lpp-brand">ร้านของคุณ</div>
+            </div>
+            <div class="modal-body" style="padding-top:18px;">
 
-              <div class="lp-cod hidden" id="lpp-cod-box">
-                <span class="cod-label">COD เก็บปลายทาง</span>
-                <span class="cod-amount" id="lpp-cod-amount">฿0</span>
-              </div>
-
-              <div class="lp-stamprow">
-                <div class="lp-route" id="lpp-route">-</div>
-                <div class="lp-qr" id="lpp-qr"><canvas id="lpp-qr-canvas"></canvas></div>
-              </div>
-
-              <div class="lp-barcode-block">
+              <div class="modal-barcode-box">
                 <svg id="lpp-barcode"></svg>
-                <div class="lp-tracking" id="lpp-tracking">-</div>
+                <div class="bc-caption">บาร์โค้ด Code128 ของเลขพัสดุนี้</div>
               </div>
 
-              <div class="lp-divider"></div>
-
-              <div>
-                <div class="lp-section-title">ผู้รับ</div>
-                <div class="lp-recipient-name" id="lpp-r-name">-</div>
-                <div class="lp-recipient-phone" id="lpp-r-phone">-</div>
-                <div class="lp-recipient-addr" id="lpp-r-addr">-</div>
+              <div class="info-grid">
+                <div class="info-panel">
+                  <div class="info-panel-title">ผู้รับ</div>
+                  <div class="field-row"><span class="field-label">ชื่อ</span><span class="field-value" id="lpp-r-name">-</span></div>
+                  <div class="field-row"><span class="field-label">เบอร์โทร</span><span class="field-value" id="lpp-r-phone">-</span></div>
+                  <div class="field-row"><span class="field-label">ที่อยู่</span><span class="field-value" id="lpp-r-addr">-</span></div>
+                </div>
+                <div class="info-panel">
+                  <div class="info-panel-title">ผู้ส่ง</div>
+                  <div class="field-row"><span class="field-label">ชื่อ</span><span class="field-value" id="lpp-s-name">-</span></div>
+                  <div class="field-row"><span class="field-label">เบอร์โทร</span><span class="field-value" id="lpp-s-phone">-</span></div>
+                </div>
               </div>
 
-              <div class="lp-meta-grid">
-                <div class="lp-meta-item"><div class="m-label">น้ำหนัก</div><div class="m-value" id="lpp-weight">-</div></div>
-                <div class="lp-meta-item"><div class="m-label">ประเภท</div><div class="m-value" id="lpp-type">-</div></div>
-                <div class="lp-meta-item"><div class="m-label">อ้างอิง</div><div class="m-value" id="lpp-ref">-</div></div>
-              </div>
-
-              <div class="lp-sender">ผู้ส่ง: <b id="lpp-s-name">-</b> · <span id="lpp-s-phone">-</span></div>
-
-              <div class="lp-footer">
-                <span>โปรดตรวจสอบสภาพพัสดุก่อนเซ็นรับ</span>
-                <span id="lpp-date"></span>
-              </div>
+              <div class="summary-strip" id="lpp-pills"></div>
             </div>
           </div>
         </div>
@@ -4410,34 +4393,35 @@ function openLabelPrint(row){
 
 function lpRefresh(){
   const brand = lpEl("lpf-brand").value || "ร้านของคุณ";
-  lpEl("lpp-brand").textContent = brand;
-  lpEl("lpp-service").textContent = lpEl("lpf-service").value;
-  lpEl("lpp-route").textContent = lpEl("lpf-route").value || "-";
-
-  const codOn = lpEl("lpf-cod-on").checked;
-  lpEl("lpp-cod-box").classList.toggle("hidden", !codOn);
-  const amt = parseFloat(lpEl("lpf-cod-amount").value || "0");
-  lpEl("lpp-cod-amount").textContent = "฿" + (isNaN(amt) ? "0" : amt.toLocaleString("th-TH"));
-
+  const service = lpEl("lpf-service").value || "มาตรฐาน";
+  const route = lpEl("lpf-route").value || "-";
   const tracking = lpEl("lpf-tracking").value || "-";
+
+  lpEl("lpp-service").textContent = service;
   lpEl("lpp-tracking").textContent = tracking;
+  lpEl("lpp-brand").textContent = brand + (route && route !== "-" ? " · " + route : "");
 
   lpEl("lpp-r-name").textContent = lpEl("lpf-r-name").value || "-";
-  lpEl("lpp-r-phone").textContent = lpEl("lpf-r-phone").value || "";
-  lpEl("lpp-r-addr").textContent = lpEl("lpf-r-addr").value || "";
-
-  lpEl("lpp-weight").textContent = lpEl("lpf-weight").value || "-";
-  lpEl("lpp-type").textContent = lpEl("lpf-type").value || "-";
-  lpEl("lpp-ref").textContent = lpEl("lpf-ref").value || "-";
-
+  lpEl("lpp-r-phone").textContent = lpEl("lpf-r-phone").value || "-";
+  lpEl("lpp-r-addr").textContent = lpEl("lpf-r-addr").value || "-";
   lpEl("lpp-s-name").textContent = lpEl("lpf-s-name").value || "-";
-  lpEl("lpp-s-phone").textContent = lpEl("lpf-s-phone").value || "";
+  lpEl("lpp-s-phone").textContent = lpEl("lpf-s-phone").value || "-";
 
-  const now = new Date();
-  lpEl("lpp-date").textContent = now.toLocaleDateString("th-TH", {year:"numeric",month:"short",day:"numeric"});
+  const codOn = lpEl("lpf-cod-on").checked;
+  const codAmt = parseFloat(lpEl("lpf-cod-amount").value || "0");
+  const weight = lpEl("lpf-weight").value || "-";
+  const type = lpEl("lpf-type").value || "-";
+  const ref = lpEl("lpf-ref").value || "-";
+
+  const pills = [
+    `<div class="summary-pill"><span class="pill-label">น้ำหนัก</span><b>${weight}</b></div>`,
+    `<div class="summary-pill"><span class="pill-label">ประเภท</span><b>${type}</b></div>`,
+    `<div class="summary-pill"><span class="pill-label">อ้างอิง</span><b>${ref}</b></div>`,
+    codOn ? `<div class="summary-pill"><span class="pill-label">COD</span><b>฿${(isNaN(codAmt)?0:codAmt).toLocaleString("th-TH")}</b></div>` : ""
+  ].filter(Boolean).join("");
+  lpEl("lpp-pills").innerHTML = pills;
 
   lpRenderBarcode(tracking);
-  lpRenderQR(tracking);
 }
 
 function lpRenderBarcode(text, retriesLeft){
@@ -4448,23 +4432,11 @@ function lpRenderBarcode(text, retriesLeft){
   }
   try{
     JsBarcode("#lpp-barcode", text || "0000000000", {
-      format:"CODE128", lineColor:"#1C1F26", width:2, height:52,
-      displayValue:false, margin:0, background:"transparent"
+      format:"CODE128", lineColor:"#15151a", width:2.1, height:70,
+      displayValue:true, fontOptions:"600", font:"Prompt, sans-serif", fontSize:14,
+      textMargin:5, margin:6, background:"#ffffff"
     });
   }catch(e){ /* invalid chars for barcode — ignore silently in preview */ }
-}
-
-function lpRenderQR(text, retriesLeft){
-  if(retriesLeft === undefined) retriesLeft = 20;
-  const canvas = lpEl("lpp-qr-canvas");
-  if(!canvas) return;
-  if(typeof QRCode === "undefined" || !QRCode.toCanvas){
-    if(retriesLeft > 0){ setTimeout(() => lpRenderQR(text, retriesLeft - 1), 200); return; }
-    return;
-  }
-  QRCode.toCanvas(canvas, text || "0000000000", { width:64, margin:1, color:{ dark:"#1C1F26", light:"#ffffff" } }, (err) => {
-    if(err) debugError("สร้าง QR สำหรับใบปะหน้าล้มเหลว:", err.message || String(err));
-  });
 }
 
 document.querySelectorAll(".lp-controls input, .lp-controls select, .lp-controls textarea").forEach(input => {
