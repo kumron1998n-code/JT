@@ -3,452 +3,1217 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ใบปะหน้าพัสดุ — เครื่องมือสร้างใบปะหน้าสำหรับร้านของคุณ</title>
+<title>J&T Express — ระบบค้นหาสถานะพัสดุ</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,300;0,400;0,500;0,600;0,700;1,500;1,700&family=Prompt:ital,wght@0,600;0,700;0,800;1,700;1,800&family=JetBrains+Mono:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jsbarcode/3.11.5/JsBarcode.all.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,500;1,700&family=Prompt:ital,wght@0,500;0,600;0,700;0,800;1,700;1,800&display=swap" rel="stylesheet">
+<script>
+/* JsBarcode library — inlined so it works even under strict CSP hosts like Google Sites */
+/*! JsBarcode v3.11.5 | (c) Johan Lindell | MIT license */
+!function(t){var e={};function n(r){if(e[r])return e[r].exports;var o=e[r]={i:r,l:!1,exports:{}};return t[r].call(o.exports,o,o.exports,n),o.l=!0,o.exports}n.m=t,n.c=e,n.d=function(t,e,r){n.o(t,e)||Object.defineProperty(t,e,{enumerable:!0,get:r})},n.r=function(t){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(t,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(t,"__esModule",{value:!0})},n.t=function(t,e){if(1&e&&(t=n(t)),8&e)return t;if(4&e&&"object"==typeof t&&t&&t.__esModule)return t;var r=Object.create(null);if(n.r(r),Object.defineProperty(r,"default",{enumerable:!0,value:t}),2&e&&"string"!=typeof t)for(var o in t)n.d(r,o,function(e){return t[e]}.bind(null,o));return r},n.n=function(t){var e=t&&t.__esModule?function(){return t.default}:function(){return t};return n.d(e,"a",e),e},n.o=function(t,e){return Object.prototype.hasOwnProperty.call(t,e)},n.p="",n(n.s=15)}([function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0});e.default=function t(e,n){!function(t,e){if(!(t instanceof e))throw new TypeError("Cannot call a class as a function")}(this,t),this.data=e,this.text=n.text||e,this.options=n}},function(t,e,n){"use strict";var r;function o(t,e,n){return e in t?Object.defineProperty(t,e,{value:n,enumerable:!0,configurable:!0,writable:!0}):t[e]=n,t}Object.defineProperty(e,"__esModule",{value:!0});var i=e.SET_A=0,a=e.SET_B=1,u=e.SET_C=2,f=(e.SHIFT=98,e.START_A=103),c=e.START_B=104,s=e.START_C=105;e.MODULO=103,e.STOP=106,e.FNC1=207,e.SET_BY_CODE=(o(r={},f,i),o(r,c,a),o(r,s,u),r),e.SWAP={101:i,100:a,99:u},e.A_START_CHAR=String.fromCharCode(208),e.B_START_CHAR=String.fromCharCode(209),e.C_START_CHAR=String.fromCharCode(210),e.A_CHARS="[\0-_È-Ï]",e.B_CHARS="[ -È-Ï]",e.C_CHARS="(Ï*[0-9]{2}Ï*)",e.BARS=[11011001100,11001101100,11001100110,10010011e3,10010001100,10001001100,10011001e3,10011000100,10001100100,11001001e3,11001000100,11000100100,10110011100,10011011100,10011001110,10111001100,10011101100,10011100110,11001110010,11001011100,11001001110,11011100100,11001110100,11101101110,11101001100,11100101100,11100100110,11101100100,11100110100,11100110010,11011011e3,11011000110,11000110110,10100011e3,10001011e3,10001000110,10110001e3,10001101e3,10001100010,11010001e3,11000101e3,11000100010,10110111e3,10110001110,10001101110,10111011e3,10111000110,10001110110,11101110110,11010001110,11000101110,11011101e3,11011100010,11011101110,11101011e3,11101000110,11100010110,11101101e3,11101100010,11100011010,11101111010,11001000010,11110001010,1010011e4,10100001100,1001011e4,10010000110,10000101100,10000100110,1011001e4,10110000100,1001101e4,10011000010,10000110100,10000110010,11000010010,1100101e4,11110111010,11000010100,10001111010,10100111100,10010111100,10010011110,10111100100,10011110100,10011110010,11110100100,11110010100,11110010010,11011011110,11011110110,11110110110,10101111e3,10100011110,10001011110,10111101e3,10111100010,11110101e3,11110100010,10111011110,10111101110,11101011110,11110101110,11010000100,1101001e4,11010011100,1100011101011]},function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0});e.SIDE_BIN="101",e.MIDDLE_BIN="01010",e.BINARIES={L:["0001101","0011001","0010011","0111101","0100011","0110001","0101111","0111011","0110111","0001011"],G:["0100111","0110011","0011011","0100001","0011101","0111001","0000101","0010001","0001001","0010111"],R:["1110010","1100110","1101100","1000010","1011100","1001110","1010000","1000100","1001000","1110100"],O:["0001101","0011001","0010011","0111101","0100011","0110001","0101111","0111011","0110111","0001011"],E:["0100111","0110011","0011011","0100001","0011101","0111001","0000101","0010001","0001001","0010111"]},e.EAN2_STRUCTURE=["LL","LG","GL","GG"],e.EAN5_STRUCTURE=["GGLLL","GLGLL","GLLGL","GLLLG","LGGLL","LLGGL","LLLGG","LGLGL","LGLLG","LLGLG"],e.EAN13_STRUCTURE=["LLLLLL","LLGLGG","LLGGLG","LLGGGL","LGLLGG","LGGLLG","LGGGLL","LGLGLG","LGLGGL","LGGLGL"]},function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0});var r=n(2);e.default=function(t,e,n){var o=t.split("").map((function(t,n){return r.BINARIES[e[n]]})).map((function(e,n){return e?e[t[n]]:""}));if(n){var i=t.length-1;o=o.map((function(t,e){return e<i?t+n:t}))}return o.join("")}},function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0});var r,o=function(){function t(t,e){for(var n=0;n<e.length;n++){var r=e[n];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(t,r.key,r)}}return function(e,n,r){return n&&t(e.prototype,n),r&&t(e,r),e}}(),i=n(0);var a=function(t){function e(t,n){return function(t,e){if(!(t instanceof e))throw new TypeError("Cannot call a class as a function")}(this,e),function(t,e){if(!t)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return!e||"object"!=typeof e&&"function"!=typeof e?t:e}(this,(e.__proto__||Object.getPrototypeOf(e)).call(this,t,n))}return function(t,e){if("function"!=typeof e&&null!==e)throw new TypeError("Super expression must either be null or a function, not "+typeof e);t.prototype=Object.create(e&&e.prototype,{constructor:{value:t,enumerable:!1,writable:!0,configurable:!0}}),e&&(Object.setPrototypeOf?Object.setPrototypeOf(t,e):t.__proto__=e)}(e,t),o(e,[{key:"encode",value:function(){for(var t="110",e=0;e<this.data.length;e++){var n=parseInt(this.data[e]).toString(2);n=u(n,4-n.length);for(var r=0;r<n.length;r++)t+="0"==n[r]?"100":"110"}return{data:t+="1001",text:this.text}}},{key:"valid",value:function(){return-1!==this.data.search(/^[0-9]+$/)}}]),e}(((r=i)&&r.__esModule?r:{default:r}).default);function u(t,e){for(var n=0;n<e;n++)t="0"+t;return t}e.default=a},function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0});var r,o=function(){function t(t,e){for(var n=0;n<e.length;n++){var r=e[n];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(t,r.key,r)}}return function(e,n,r){return n&&t(e.prototype,n),r&&t(e,r),e}}(),i=n(0),a=(r=i)&&r.__esModule?r:{default:r},u=n(1);var f=function(t){function e(t,n){!function(t,e){if(!(t instanceof e))throw new TypeError("Cannot call a class as a function")}(this,e);var r=function(t,e){if(!t)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return!e||"object"!=typeof e&&"function"!=typeof e?t:e}(this,(e.__proto__||Object.getPrototypeOf(e)).call(this,t.substring(1),n));return r.bytes=t.split("").map((function(t){return t.charCodeAt(0)})),r}return function(t,e){if("function"!=typeof e&&null!==e)throw new TypeError("Super expression must either be null or a function, not "+typeof e);t.prototype=Object.create(e&&e.prototype,{constructor:{value:t,enumerable:!1,writable:!0,configurable:!0}}),e&&(Object.setPrototypeOf?Object.setPrototypeOf(t,e):t.__proto__=e)}(e,t),o(e,[{key:"valid",value:function(){return/^[\x00-\x7F\xC8-\xD3]+$/.test(this.data)}},{key:"encode",value:function(){var t=this.bytes,n=t.shift()-105,r=u.SET_BY_CODE[n];if(void 0===r)throw new RangeError("The encoding does not start with a start character.");!0===this.shouldEncodeAsEan128()&&t.unshift(u.FNC1);var o=e.next(t,1,r);return{text:this.text===this.data?this.text.replace(/[^\x20-\x7E]/g,""):this.text,data:e.getBar(n)+o.result+e.getBar((o.checksum+n)%u.MODULO)+e.getBar(u.STOP)}}},{key:"shouldEncodeAsEan128",value:function(){var t=this.options.ean128||!1;return"string"==typeof t&&(t="true"===t.toLowerCase()),t}}],[{key:"getBar",value:function(t){return u.BARS[t]?u.BARS[t].toString():""}},{key:"correctIndex",value:function(t,e){if(e===u.SET_A){var n=t.shift();return n<32?n+64:n-32}return e===u.SET_B?t.shift()-32:10*(t.shift()-48)+t.shift()-48}},{key:"next",value:function(t,n,r){if(!t.length)return{result:"",checksum:0};var o=void 0,i=void 0;if(t[0]>=200){i=t.shift()-105;var a=u.SWAP[i];void 0!==a?o=e.next(t,n+1,a):(r!==u.SET_A&&r!==u.SET_B||i!==u.SHIFT||(t[0]=r===u.SET_A?t[0]>95?t[0]-96:t[0]:t[0]<32?t[0]+96:t[0]),o=e.next(t,n+1,r))}else i=e.correctIndex(t,r),o=e.next(t,n+1,r);var f=i*n;return{result:e.getBar(i)+o.result,checksum:f+o.checksum}}}]),e}(a.default);e.default=f},function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0}),e.mod10=function(t){for(var e=0,n=0;n<t.length;n++){var r=parseInt(t[n]);(n+t.length)%2==0?e+=r:e+=2*r%10+Math.floor(2*r/10)}return(10-e%10)%10},e.mod11=function(t){for(var e=0,n=[2,3,4,5,6,7],r=0;r<t.length;r++){var o=parseInt(t[t.length-1-r]);e+=n[r%n.length]*o}return(11-e%11)%11}},function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0});var r=Object.assign||function(t){for(var e=1;e<arguments.length;e++){var n=arguments[e];for(var r in n)Object.prototype.hasOwnProperty.call(n,r)&&(t[r]=n[r])}return t};e.default=function(t,e){return r({},t,e)}},function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0});var r=function(){function t(t,e){for(var n=0;n<e.length;n++){var r=e[n];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(t,r.key,r)}}return function(e,n,r){return n&&t(e.prototype,n),r&&t(e,r),e}}(),o=n(2),i=a(n(3));function a(t){return t&&t.__esModule?t:{default:t}}var u=function(t){function e(t,n){!function(t,e){if(!(t instanceof e))throw new TypeError("Cannot call a class as a function")}(this,e);var r=function(t,e){if(!t)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return!e||"object"!=typeof e&&"function"!=typeof e?t:e}(this,(e.__proto__||Object.getPrototypeOf(e)).call(this,t,n));return r.fontSize=!n.flat&&n.fontSize>10*n.width?10*n.width:n.fontSize,r.guardHeight=n.height+r.fontSize/2+n.textMargin,r}return function(t,e){if("function"!=typeof e&&null!==e)throw new TypeError("Super expression must either be null or a function, not "+typeof e);t.prototype=Object.create(e&&e.prototype,{constructor:{value:t,enumerable:!1,writable:!0,configurable:!0}}),e&&(Object.setPrototypeOf?Object.setPrototypeOf(t,e):t.__proto__=e)}(e,t),r(e,[{key:"encode",value:function(){return this.options.flat?this.encodeFlat():this.encodeGuarded()}},{key:"leftText",value:function(t,e){return this.text.substr(t,e)}},{key:"leftEncode",value:function(t,e){return(0,i.default)(t,e)}},{key:"rightText",value:function(t,e){return this.text.substr(t,e)}},{key:"rightEncode",value:function(t,e){return(0,i.default)(t,e)}},{key:"encodeGuarded",value:function(){var t={fontSize:this.fontSize},e={height:this.guardHeight};return[{data:o.SIDE_BIN,options:e},{data:this.leftEncode(),text:this.leftText(),options:t},{data:o.MIDDLE_BIN,options:e},{data:this.rightEncode(),text:this.rightText(),options:t},{data:o.SIDE_BIN,options:e}]}},{key:"encodeFlat",value:function(){return{data:[o.SIDE_BIN,this.leftEncode(),o.MIDDLE_BIN,this.rightEncode(),o.SIDE_BIN].join(""),text:this.text}}}]),e}(a(n(0)).default);e.default=u},function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0});var r=function(){function t(t,e){for(var n=0;n<e.length;n++){var r=e[n];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(t,r.key,r)}}return function(e,n,r){return n&&t(e.prototype,n),r&&t(e,r),e}}();e.checksum=u;var o=i(n(3));function i(t){return t&&t.__esModule?t:{default:t}}var a=function(t){function e(t,n){!function(t,e){if(!(t instanceof e))throw new TypeError("Cannot call a class as a function")}(this,e),-1!==t.search(/^[0-9]{11}$/)&&(t+=u(t));var r=function(t,e){if(!t)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return!e||"object"!=typeof e&&"function"!=typeof e?t:e}(this,(e.__proto__||Object.getPrototypeOf(e)).call(this,t,n));return r.displayValue=n.displayValue,n.fontSize>10*n.width?r.fontSize=10*n.width:r.fontSize=n.fontSize,r.guardHeight=n.height+r.fontSize/2+n.textMargin,r}return function(t,e){if("function"!=typeof e&&null!==e)throw new TypeError("Super expression must either be null or a function, not "+typeof e);t.prototype=Object.create(e&&e.prototype,{constructor:{value:t,enumerable:!1,writable:!0,configurable:!0}}),e&&(Object.setPrototypeOf?Object.setPrototypeOf(t,e):t.__proto__=e)}(e,t),r(e,[{key:"valid",value:function(){return-1!==this.data.search(/^[0-9]{12}$/)&&this.data[11]==u(this.data)}},{key:"encode",value:function(){return this.options.flat?this.flatEncoding():this.guardedEncoding()}},{key:"flatEncoding",value:function(){var t="";return t+="101",t+=(0,o.default)(this.data.substr(0,6),"LLLLLL"),t+="01010",t+=(0,o.default)(this.data.substr(6,6),"RRRRRR"),{data:t+="101",text:this.text}}},{key:"guardedEncoding",value:function(){var t=[];return this.displayValue&&t.push({data:"00000000",text:this.text.substr(0,1),options:{textAlign:"left",fontSize:this.fontSize}}),t.push({data:"101"+(0,o.default)(this.data[0],"L"),options:{height:this.guardHeight}}),t.push({data:(0,o.default)(this.data.substr(1,5),"LLLLL"),text:this.text.substr(1,5),options:{fontSize:this.fontSize}}),t.push({data:"01010",options:{height:this.guardHeight}}),t.push({data:(0,o.default)(this.data.substr(6,5),"RRRRR"),text:this.text.substr(6,5),options:{fontSize:this.fontSize}}),t.push({data:(0,o.default)(this.data[11],"R")+"101",options:{height:this.guardHeight}}),this.displayValue&&t.push({data:"00000000",text:this.text.substr(11,1),options:{textAlign:"right",fontSize:this.fontSize}}),t}}]),e}(i(n(0)).default);function u(t){var e,n=0;for(e=1;e<11;e+=2)n+=parseInt(t[e]);for(e=0;e<11;e+=2)n+=3*parseInt(t[e]);return(10-n%10)%10}e.default=a},function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0});var r,o=function(){function t(t,e){for(var n=0;n<e.length;n++){var r=e[n];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(t,r.key,r)}}return function(e,n,r){return n&&t(e.prototype,n),r&&t(e,r),e}}(),i=n(31),a=n(0);function u(t,e){if(!(t instanceof e))throw new TypeError("Cannot call a class as a function")}function f(t,e){if(!t)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return!e||"object"!=typeof e&&"function"!=typeof e?t:e}var c=function(t){function e(){return u(this,e),f(this,(e.__proto__||Object.getPrototypeOf(e)).apply(this,arguments))}return function(t,e){if("function"!=typeof e&&null!==e)throw new TypeError("Super expression must either be null or a function, not "+typeof e);t.prototype=Object.create(e&&e.prototype,{constructor:{value:t,enumerable:!1,writable:!0,configurable:!0}}),e&&(Object.setPrototypeOf?Object.setPrototypeOf(t,e):t.__proto__=e)}(e,t),o(e,[{key:"valid",value:function(){return-1!==this.data.search(/^([0-9]{2})+$/)}},{key:"encode",value:function(){var t=this,e=this.data.match(/.{2}/g).map((function(e){return t.encodePair(e)})).join("");return{data:i.START_BIN+e+i.END_BIN,text:this.text}}},{key:"encodePair",value:function(t){var e=i.BINARIES[t[1]];return i.BINARIES[t[0]].split("").map((function(t,n){return("1"===t?"111":"1")+("1"===e[n]?"000":"0")})).join("")}}]),e}(((r=a)&&r.__esModule?r:{default:r}).default);e.default=c},function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0}),e.default=function(t){var e=["width","height","textMargin","fontSize","margin","marginTop","marginBottom","marginLeft","marginRight"];for(var n in e)e.hasOwnProperty(n)&&(n=e[n],"string"==typeof t[n]&&(t[n]=parseInt(t[n],10)));"string"==typeof t.displayValue&&(t.displayValue="false"!=t.displayValue);return t}},function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0});var r={width:2,height:100,format:"auto",displayValue:!0,fontOptions:"",font:"monospace",text:void 0,textAlign:"center",textPosition:"bottom",textMargin:2,fontSize:20,background:"#ffffff",lineColor:"#000000",margin:10,marginTop:void 0,marginBottom:void 0,marginLeft:void 0,marginRight:void 0,valid:function(){}};e.default=r},function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0}),e.getTotalWidthOfEncodings=e.calculateEncodingAttributes=e.getBarcodePadding=e.getEncodingHeight=e.getMaximumHeightOfEncodings=void 0;var r,o=n(7),i=(r=o)&&r.__esModule?r:{default:r};function a(t,e){return e.height+(e.displayValue&&t.text.length>0?e.fontSize+e.textMargin:0)+e.marginTop+e.marginBottom}function u(t,e,n){if(n.displayValue&&e<t){if("center"==n.textAlign)return Math.floor((t-e)/2);if("left"==n.textAlign)return 0;if("right"==n.textAlign)return Math.floor(t-e)}return 0}function f(t,e,n){var r;if(n)r=n;else{if("undefined"==typeof document)return 0;r=document.createElement("canvas").getContext("2d")}r.font=e.fontOptions+" "+e.fontSize+"px "+e.font;var o=r.measureText(t);return o?o.width:0}e.getMaximumHeightOfEncodings=function(t){for(var e=0,n=0;n<t.length;n++)t[n].height>e&&(e=t[n].height);return e},e.getEncodingHeight=a,e.getBarcodePadding=u,e.calculateEncodingAttributes=function(t,e,n){for(var r=0;r<t.length;r++){var o,c=t[r],s=(0,i.default)(e,c.options);o=s.displayValue?f(c.text,s,n):0;var l=c.data.length*s.width;c.width=Math.ceil(Math.max(o,l)),c.height=a(c,s),c.barcodePadding=u(o,l,s)}},e.getTotalWidthOfEncodings=function(t){for(var e=0,n=0;n<t.length;n++)e+=t[n].width;return e}},function(t,e,n){"use strict";function r(t,e){if(!(t instanceof e))throw new TypeError("Cannot call a class as a function")}function o(t,e){if(!t)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return!e||"object"!=typeof e&&"function"!=typeof e?t:e}function i(t,e){if("function"!=typeof e&&null!==e)throw new TypeError("Super expression must either be null or a function, not "+typeof e);t.prototype=Object.create(e&&e.prototype,{constructor:{value:t,enumerable:!1,writable:!0,configurable:!0}}),e&&(Object.setPrototypeOf?Object.setPrototypeOf(t,e):t.__proto__=e)}Object.defineProperty(e,"__esModule",{value:!0});var a=function(t){function e(t,n){r(this,e);var i=o(this,(e.__proto__||Object.getPrototypeOf(e)).call(this));return i.name="InvalidInputException",i.symbology=t,i.input=n,i.message='"'+i.input+'" is not a valid input for '+i.symbology,i}return i(e,Error),e}(),u=function(t){function e(){r(this,e);var t=o(this,(e.__proto__||Object.getPrototypeOf(e)).call(this));return t.name="InvalidElementException",t.message="Not supported type to render on",t}return i(e,Error),e}(),f=function(t){function e(){r(this,e);var t=o(this,(e.__proto__||Object.getPrototypeOf(e)).call(this));return t.name="NoElementException",t.message="No element to render on.",t}return i(e,Error),e}();e.InvalidInputException=a,e.InvalidElementException=u,e.NoElementException=f},function(t,e,n){"use strict";var r=p(n(16)),o=p(n(7)),i=p(n(41)),a=p(n(42)),u=p(n(43)),f=p(n(11)),c=p(n(49)),s=n(14),l=p(n(12));function p(t){return t&&t.__esModule?t:{default:t}}var d=function(){},h=function(t,e,n){var r=new d;if(void 0===t)throw Error("No element to render on was provided.");return r._renderProperties=(0,u.default)(t),r._encodings=[],r._options=l.default,r._errorHandler=new c.default(r),void 0!==e&&((n=n||{}).format||(n.format=_()),r.options(n)[n.format](e,n).render()),r};for(var y in h.getModule=function(t){return r.default[t]},r.default)r.default.hasOwnProperty(y)&&b(r.default,y);function b(t,e){d.prototype[e]=d.prototype[e.toUpperCase()]=d.prototype[e.toLowerCase()]=function(n,r){var i=this;return i._errorHandler.wrapBarcodeCall((function(){r.text=void 0===r.text?void 0:""+r.text;var a=(0,o.default)(i._options,r);a=(0,f.default)(a);var u=t[e],c=v(n,u,a);return i._encodings.push(c),i}))}}function v(t,e,n){var r=new e(t=""+t,n);if(!r.valid())throw new s.InvalidInputException(r.constructor.name,t);var a=r.encode();a=(0,i.default)(a);for(var u=0;u<a.length;u++)a[u].options=(0,o.default)(n,a[u].options);return a}function _(){return r.default.CODE128?"CODE128":Object.keys(r.default)[0]}function g(t,e,n){e=(0,i.default)(e);for(var r=0;r<e.length;r++)e[r].options=(0,o.default)(n,e[r].options),(0,a.default)(e[r].options);(0,a.default)(n),new(0,t.renderer)(t.element,e,n).render(),t.afterRender&&t.afterRender()}d.prototype.options=function(t){return this._options=(0,o.default)(this._options,t),this},d.prototype.blank=function(t){var e=new Array(t+1).join("0");return this._encodings.push({data:e}),this},d.prototype.init=function(){var t;if(this._renderProperties)for(var e in Array.isArray(this._renderProperties)||(this._renderProperties=[this._renderProperties]),this._renderProperties){t=this._renderProperties[e];var n=(0,o.default)(this._options,t.options);"auto"==n.format&&(n.format=_()),this._errorHandler.wrapBarcodeCall((function(){var e=v(n.value,r.default[n.format.toUpperCase()],n);g(t,e,n)}))}},d.prototype.render=function(){if(!this._renderProperties)throw new s.NoElementException;if(Array.isArray(this._renderProperties))for(var t=0;t<this._renderProperties.length;t++)g(this._renderProperties[t],this._encodings,this._options);else g(this._renderProperties,this._encodings,this._options);return this},d.prototype._defaults=l.default,"undefined"!=typeof window&&(window.JsBarcode=h),"undefined"!=typeof jQuery&&(jQuery.fn.JsBarcode=function(t,e){var n=[];return jQuery(this).each((function(){n.push(this)})),h(n,t,e)}),t.exports=h},function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0});var r=n(17),o=n(18),i=n(24),a=n(30),u=n(33),f=n(38),c=n(39),s=n(40);e.default={CODE39:r.CODE39,CODE128:o.CODE128,CODE128A:o.CODE128A,CODE128B:o.CODE128B,CODE128C:o.CODE128C,EAN13:i.EAN13,EAN8:i.EAN8,EAN5:i.EAN5,EAN2:i.EAN2,UPC:i.UPC,UPCE:i.UPCE,ITF14:a.ITF14,ITF:a.ITF,MSI:u.MSI,MSI10:u.MSI10,MSI11:u.MSI11,MSI1010:u.MSI1010,MSI1110:u.MSI1110,pharmacode:f.pharmacode,codabar:c.codabar,GenericBarcode:s.GenericBarcode}},function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0}),e.CODE39=void 0;var r,o=function(){function t(t,e){for(var n=0;n<e.length;n++){var r=e[n];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(t,r.key,r)}}return function(e,n,r){return n&&t(e.prototype,n),r&&t(e,r),e}}(),i=n(0);var a=function(t){function e(t,n){return function(t,e){if(!(t instanceof e))throw new TypeError("Cannot call a class as a function")}(this,e),t=t.toUpperCase(),n.mod43&&(t+=function(t){return u[t]}(function(t){for(var e=0,n=0;n<t.length;n++)e+=s(t[n]);return e%=43}(t))),function(t,e){if(!t)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return!e||"object"!=typeof e&&"function"!=typeof e?t:e}(this,(e.__proto__||Object.getPrototypeOf(e)).call(this,t,n))}return function(t,e){if("function"!=typeof e&&null!==e)throw new TypeError("Super expression must either be null or a function, not "+typeof e);t.prototype=Object.create(e&&e.prototype,{constructor:{value:t,enumerable:!1,writable:!0,configurable:!0}}),e&&(Object.setPrototypeOf?Object.setPrototypeOf(t,e):t.__proto__=e)}(e,t),o(e,[{key:"encode",value:function(){for(var t=c("*"),e=0;e<this.data.length;e++)t+=c(this.data[e])+"0";return{data:t+=c("*"),text:this.text}}},{key:"valid",value:function(){return-1!==this.data.search(/^[0-9A-Z\-\.\ \$\/\+\%]+$/)}}]),e}(((r=i)&&r.__esModule?r:{default:r}).default),u=["0","1","2","3","4","5","6","7","8","9","A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","-","."," ","$","/","+","%","*"],f=[20957,29783,23639,30485,20951,29813,23669,20855,29789,23645,29975,23831,30533,22295,30149,24005,21623,29981,23837,22301,30023,23879,30545,22343,30161,24017,21959,30065,23921,22385,29015,18263,29141,17879,29045,18293,17783,29021,18269,17477,17489,17681,20753,35770];function c(t){return function(t){return f[t].toString(2)}(s(t))}function s(t){return u.indexOf(t)}e.CODE39=a},function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0}),e.CODE128C=e.CODE128B=e.CODE128A=e.CODE128=void 0;var r=u(n(19)),o=u(n(21)),i=u(n(22)),a=u(n(23));function u(t){return t&&t.__esModule?t:{default:t}}e.CODE128=r.default,e.CODE128A=o.default,e.CODE128B=i.default,e.CODE128C=a.default},function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0});var r=i(n(5)),o=i(n(20));function i(t){return t&&t.__esModule?t:{default:t}}function a(t,e){if(!t)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return!e||"object"!=typeof e&&"function"!=typeof e?t:e}var u=function(t){function e(t,n){if(function(t,e){if(!(t instanceof e))throw new TypeError("Cannot call a class as a function")}(this,e),/^[\x00-\x7F\xC8-\xD3]+$/.test(t))var r=a(this,(e.__proto__||Object.getPrototypeOf(e)).call(this,(0,o.default)(t),n));else r=a(this,(e.__proto__||Object.getPrototypeOf(e)).call(this,t,n));return a(r)}return function(t,e){if("function"!=typeof e&&null!==e)throw new TypeError("Super expression must either be null or a function, not "+typeof e);t.prototype=Object.create(e&&e.prototype,{constructor:{value:t,enumerable:!1,writable:!0,configurable:!0}}),e&&(Object.setPrototypeOf?Object.setPrototypeOf(t,e):t.__proto__=e)}(e,t),e}(r.default);e.default=u},function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0});var r=n(1),o=function(t){return t.match(new RegExp("^"+r.A_CHARS+"*"))[0].length},i=function(t){return t.match(new RegExp("^"+r.B_CHARS+"*"))[0].length},a=function(t){return t.match(new RegExp("^"+r.C_CHARS+"*"))[0]};function u(t,e){var n=e?r.A_CHARS:r.B_CHARS,o=t.match(new RegExp("^("+n+"+?)(([0-9]{2}){2,})([^0-9]|$)"));if(o)return o[1]+String.fromCharCode(204)+f(t.substring(o[1].length));var i=t.match(new RegExp("^"+n+"+"))[0];return i.length===t.length?t:i+String.fromCharCode(e?205:206)+u(t.substring(i.length),!e)}function f(t){var e=a(t),n=e.length;if(n===t.length)return t;t=t.substring(n);var r=o(t)>=i(t);return e+String.fromCharCode(r?206:205)+u(t,r)}e.default=function(t){var e=void 0;if(a(t).length>=2)e=r.C_START_CHAR+f(t);else{var n=o(t)>i(t);e=(n?r.A_START_CHAR:r.B_START_CHAR)+u(t,n)}return e.replace(/[\xCD\xCE]([^])[\xCD\xCE]/,(function(t,e){return String.fromCharCode(203)+e}))}},function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0});var r,o=function(){function t(t,e){for(var n=0;n<e.length;n++){var r=e[n];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(t,r.key,r)}}return function(e,n,r){return n&&t(e.prototype,n),r&&t(e,r),e}}(),i=n(5),a=(r=i)&&r.__esModule?r:{default:r},u=n(1);var f=function(t){function e(t,n){return function(t,e){if(!(t instanceof e))throw new TypeError("Cannot call a class as a function")}(this,e),function(t,e){if(!t)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return!e||"object"!=typeof e&&"function"!=typeof e?t:e}(this,(e.__proto__||Object.getPrototypeOf(e)).call(this,u.A_START_CHAR+t,n))}return function(t,e){if("function"!=typeof e&&null!==e)throw new TypeError("Super expression must either be null or a function, not "+typeof e);t.prototype=Object.create(e&&e.prototype,{constructor:{value:t,enumerable:!1,writable:!0,configurable:!0}}),e&&(Object.setPrototypeOf?Object.setPrototypeOf(t,e):t.__proto__=e)}(e,t),o(e,[{key:"valid",value:function(){return new RegExp("^"+u.A_CHARS+"+$").test(this.data)}}]),e}(a.default);e.default=f},function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0});var r,o=function(){function t(t,e){for(var n=0;n<e.length;n++){var r=e[n];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(t,r.key,r)}}return function(e,n,r){return n&&t(e.prototype,n),r&&t(e,r),e}}(),i=n(5),a=(r=i)&&r.__esModule?r:{default:r},u=n(1);var f=function(t){function e(t,n){return function(t,e){if(!(t instanceof e))throw new TypeError("Cannot call a class as a function")}(this,e),function(t,e){if(!t)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return!e||"object"!=typeof e&&"function"!=typeof e?t:e}(this,(e.__proto__||Object.getPrototypeOf(e)).call(this,u.B_START_CHAR+t,n))}return function(t,e){if("function"!=typeof e&&null!==e)throw new TypeError("Super expression must either be null or a function, not "+typeof e);t.prototype=Object.create(e&&e.prototype,{constructor:{value:t,enumerable:!1,writable:!0,configurable:!0}}),e&&(Object.setPrototypeOf?Object.setPrototypeOf(t,e):t.__proto__=e)}(e,t),o(e,[{key:"valid",value:function(){return new RegExp("^"+u.B_CHARS+"+$").test(this.data)}}]),e}(a.default);e.default=f},function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0});var r,o=function(){function t(t,e){for(var n=0;n<e.length;n++){var r=e[n];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(t,r.key,r)}}return function(e,n,r){return n&&t(e.prototype,n),r&&t(e,r),e}}(),i=n(5),a=(r=i)&&r.__esModule?r:{default:r},u=n(1);var f=function(t){function e(t,n){return function(t,e){if(!(t instanceof e))throw new TypeError("Cannot call a class as a function")}(this,e),function(t,e){if(!t)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return!e||"object"!=typeof e&&"function"!=typeof e?t:e}(this,(e.__proto__||Object.getPrototypeOf(e)).call(this,u.C_START_CHAR+t,n))}return function(t,e){if("function"!=typeof e&&null!==e)throw new TypeError("Super expression must either be null or a function, not "+typeof e);t.prototype=Object.create(e&&e.prototype,{constructor:{value:t,enumerable:!1,writable:!0,configurable:!0}}),e&&(Object.setPrototypeOf?Object.setPrototypeOf(t,e):t.__proto__=e)}(e,t),o(e,[{key:"valid",value:function(){return new RegExp("^"+u.C_CHARS+"+$").test(this.data)}}]),e}(a.default);e.default=f},function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0}),e.UPCE=e.UPC=e.EAN2=e.EAN5=e.EAN8=e.EAN13=void 0;var r=c(n(25)),o=c(n(26)),i=c(n(27)),a=c(n(28)),u=c(n(9)),f=c(n(29));function c(t){return t&&t.__esModule?t:{default:t}}e.EAN13=r.default,e.EAN8=o.default,e.EAN5=i.default,e.EAN2=a.default,e.UPC=u.default,e.UPCE=f.default},function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0});var r,o=function(){function t(t,e){for(var n=0;n<e.length;n++){var r=e[n];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(t,r.key,r)}}return function(e,n,r){return n&&t(e.prototype,n),r&&t(e,r),e}}(),i=function t(e,n,r){null===e&&(e=Function.prototype);var o=Object.getOwnPropertyDescriptor(e,n);if(void 0===o){var i=Object.getPrototypeOf(e);return null===i?void 0:t(i,n,r)}if("value"in o)return o.value;var a=o.get;return void 0!==a?a.call(r):void 0},a=n(2),u=n(8),f=(r=u)&&r.__esModule?r:{default:r};var c=function(t){return(10-t.substr(0,12).split("").map((function(t){return+t})).reduce((function(t,e,n){return n%2?t+3*e:t+e}),0)%10)%10},s=function(t){function e(t,n){!function(t,e){if(!(t instanceof e))throw new TypeError("Cannot call a class as a function")}(this,e),-1!==t.search(/^[0-9]{12}$/)&&(t+=c(t));var r=function(t,e){if(!t)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return!e||"object"!=typeof e&&"function"!=typeof e?t:e}(this,(e.__proto__||Object.getPrototypeOf(e)).call(this,t,n));return r.lastChar=n.lastChar,r}return function(t,e){if("function"!=typeof e&&null!==e)throw new TypeError("Super expression must either be null or a function, not "+typeof e);t.prototype=Object.create(e&&e.prototype,{constructor:{value:t,enumerable:!1,writable:!0,configurable:!0}}),e&&(Object.setPrototypeOf?Object.setPrototypeOf(t,e):t.__proto__=e)}(e,t),o(e,[{key:"valid",value:function(){return-1!==this.data.search(/^[0-9]{13}$/)&&+this.data[12]===c(this.data)}},{key:"leftText",value:function(){return i(e.prototype.__proto__||Object.getPrototypeOf(e.prototype),"leftText",this).call(this,1,6)}},{key:"leftEncode",value:function(){var t=this.data.substr(1,6),n=a.EAN13_STRUCTURE[this.data[0]];return i(e.prototype.__proto__||Object.getPrototypeOf(e.prototype),"leftEncode",this).call(this,t,n)}},{key:"rightText",value:function(){return i(e.prototype.__proto__||Object.getPrototypeOf(e.prototype),"rightText",this).call(this,7,6)}},{key:"rightEncode",value:function(){var t=this.data.substr(7,6);return i(e.prototype.__proto__||Object.getPrototypeOf(e.prototype),"rightEncode",this).call(this,t,"RRRRRR")}},{key:"encodeGuarded",value:function(){var t=i(e.prototype.__proto__||Object.getPrototypeOf(e.prototype),"encodeGuarded",this).call(this);return this.options.displayValue&&(t.unshift({data:"000000000000",text:this.text.substr(0,1),options:{textAlign:"left",fontSize:this.fontSize}}),this.options.lastChar&&(t.push({data:"00"}),t.push({data:"00000",text:this.options.lastChar,options:{fontSize:this.fontSize}}))),t}}]),e}(f.default);e.default=s},function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0});var r,o=function(){function t(t,e){for(var n=0;n<e.length;n++){var r=e[n];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(t,r.key,r)}}return function(e,n,r){return n&&t(e.prototype,n),r&&t(e,r),e}}(),i=function t(e,n,r){null===e&&(e=Function.prototype);var o=Object.getOwnPropertyDescriptor(e,n);if(void 0===o){var i=Object.getPrototypeOf(e);return null===i?void 0:t(i,n,r)}if("value"in o)return o.value;var a=o.get;return void 0!==a?a.call(r):void 0},a=n(8),u=(r=a)&&r.__esModule?r:{default:r};var f=function(t){return(10-t.substr(0,7).split("").map((function(t){return+t})).reduce((function(t,e,n){return n%2?t+e:t+3*e}),0)%10)%10},c=function(t){function e(t,n){return function(t,e){if(!(t instanceof e))throw new TypeError("Cannot call a class as a function")}(this,e),-1!==t.search(/^[0-9]{7}$/)&&(t+=f(t)),function(t,e){if(!t)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return!e||"object"!=typeof e&&"function"!=typeof e?t:e}(this,(e.__proto__||Object.getPrototypeOf(e)).call(this,t,n))}return function(t,e){if("function"!=typeof e&&null!==e)throw new TypeError("Super expression must either be null or a function, not "+typeof e);t.prototype=Object.create(e&&e.prototype,{constructor:{value:t,enumerable:!1,writable:!0,configurable:!0}}),e&&(Object.setPrototypeOf?Object.setPrototypeOf(t,e):t.__proto__=e)}(e,t),o(e,[{key:"valid",value:function(){return-1!==this.data.search(/^[0-9]{8}$/)&&+this.data[7]===f(this.data)}},{key:"leftText",value:function(){return i(e.prototype.__proto__||Object.getPrototypeOf(e.prototype),"leftText",this).call(this,0,4)}},{key:"leftEncode",value:function(){var t=this.data.substr(0,4);return i(e.prototype.__proto__||Object.getPrototypeOf(e.prototype),"leftEncode",this).call(this,t,"LLLL")}},{key:"rightText",value:function(){return i(e.prototype.__proto__||Object.getPrototypeOf(e.prototype),"rightText",this).call(this,4,4)}},{key:"rightEncode",value:function(){var t=this.data.substr(4,4);return i(e.prototype.__proto__||Object.getPrototypeOf(e.prototype),"rightEncode",this).call(this,t,"RRRR")}}]),e}(u.default);e.default=c},function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0});var r=function(){function t(t,e){for(var n=0;n<e.length;n++){var r=e[n];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(t,r.key,r)}}return function(e,n,r){return n&&t(e.prototype,n),r&&t(e,r),e}}(),o=n(2),i=u(n(3)),a=u(n(0));function u(t){return t&&t.__esModule?t:{default:t}}var f=function(t){function e(t,n){return function(t,e){if(!(t instanceof e))throw new TypeError("Cannot call a class as a function")}(this,e),function(t,e){if(!t)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return!e||"object"!=typeof e&&"function"!=typeof e?t:e}(this,(e.__proto__||Object.getPrototypeOf(e)).call(this,t,n))}return function(t,e){if("function"!=typeof e&&null!==e)throw new TypeError("Super expression must either be null or a function, not "+typeof e);t.prototype=Object.create(e&&e.prototype,{constructor:{value:t,enumerable:!1,writable:!0,configurable:!0}}),e&&(Object.setPrototypeOf?Object.setPrototypeOf(t,e):t.__proto__=e)}(e,t),r(e,[{key:"valid",value:function(){return-1!==this.data.search(/^[0-9]{5}$/)}},{key:"encode",value:function(){var t,e=o.EAN5_STRUCTURE[(t=this.data,t.split("").map((function(t){return+t})).reduce((function(t,e,n){return n%2?t+9*e:t+3*e}),0)%10)];return{data:"1011"+(0,i.default)(this.data,e,"01"),text:this.text}}}]),e}(a.default);e.default=f},function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0});var r=function(){function t(t,e){for(var n=0;n<e.length;n++){var r=e[n];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(t,r.key,r)}}return function(e,n,r){return n&&t(e.prototype,n),r&&t(e,r),e}}(),o=n(2),i=a(n(3));function a(t){return t&&t.__esModule?t:{default:t}}var u=function(t){function e(t,n){return function(t,e){if(!(t instanceof e))throw new TypeError("Cannot call a class as a function")}(this,e),function(t,e){if(!t)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return!e||"object"!=typeof e&&"function"!=typeof e?t:e}(this,(e.__proto__||Object.getPrototypeOf(e)).call(this,t,n))}return function(t,e){if("function"!=typeof e&&null!==e)throw new TypeError("Super expression must either be null or a function, not "+typeof e);t.prototype=Object.create(e&&e.prototype,{constructor:{value:t,enumerable:!1,writable:!0,configurable:!0}}),e&&(Object.setPrototypeOf?Object.setPrototypeOf(t,e):t.__proto__=e)}(e,t),r(e,[{key:"valid",value:function(){return-1!==this.data.search(/^[0-9]{2}$/)}},{key:"encode",value:function(){var t=o.EAN2_STRUCTURE[parseInt(this.data)%4];return{data:"1011"+(0,i.default)(this.data,t,"01"),text:this.text}}}]),e}(a(n(0)).default);e.default=u},function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0});var r=function(){function t(t,e){for(var n=0;n<e.length;n++){var r=e[n];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(t,r.key,r)}}return function(e,n,r){return n&&t(e.prototype,n),r&&t(e,r),e}}(),o=u(n(3)),i=u(n(0)),a=n(9);function u(t){return t&&t.__esModule?t:{default:t}}function f(t,e){if(!t)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return!e||"object"!=typeof e&&"function"!=typeof e?t:e}var c=["XX00000XXX","XX10000XXX","XX20000XXX","XXX00000XX","XXXX00000X","XXXXX00005","XXXXX00006","XXXXX00007","XXXXX00008","XXXXX00009"],s=[["EEEOOO","OOOEEE"],["EEOEOO","OOEOEE"],["EEOOEO","OOEEOE"],["EEOOOE","OOEEEO"],["EOEEOO","OEOOEE"],["EOOEEO","OEEOOE"],["EOOOEE","OEEEOO"],["EOEOEO","OEOEOE"],["EOEOOE","OEOEEO"],["EOOEOE","OEEOEO"]],l=function(t){function e(t,n){!function(t,e){if(!(t instanceof e))throw new TypeError("Cannot call a class as a function")}(this,e);var r=f(this,(e.__proto__||Object.getPrototypeOf(e)).call(this,t,n));if(r.isValid=!1,-1!==t.search(/^[0-9]{6}$/))r.middleDigits=t,r.upcA=p(t,"0"),r.text=n.text||""+r.upcA[0]+t+r.upcA[r.upcA.length-1],r.isValid=!0;else{if(-1===t.search(/^[01][0-9]{7}$/))return f(r);if(r.middleDigits=t.substring(1,t.length-1),r.upcA=p(r.middleDigits,t[0]),r.upcA[r.upcA.length-1]!==t[t.length-1])return f(r);r.isValid=!0}return r.displayValue=n.displayValue,n.fontSize>10*n.width?r.fontSize=10*n.width:r.fontSize=n.fontSize,r.guardHeight=n.height+r.fontSize/2+n.textMargin,r}return function(t,e){if("function"!=typeof e&&null!==e)throw new TypeError("Super expression must either be null or a function, not "+typeof e);t.prototype=Object.create(e&&e.prototype,{constructor:{value:t,enumerable:!1,writable:!0,configurable:!0}}),e&&(Object.setPrototypeOf?Object.setPrototypeOf(t,e):t.__proto__=e)}(e,t),r(e,[{key:"valid",value:function(){return this.isValid}},{key:"encode",value:function(){return this.options.flat?this.flatEncoding():this.guardedEncoding()}},{key:"flatEncoding",value:function(){var t="";return t+="101",t+=this.encodeMiddleDigits(),{data:t+="010101",text:this.text}}},{key:"guardedEncoding",value:function(){var t=[];return this.displayValue&&t.push({data:"00000000",text:this.text[0],options:{textAlign:"left",fontSize:this.fontSize}}),t.push({data:"101",options:{height:this.guardHeight}}),t.push({data:this.encodeMiddleDigits(),text:this.text.substring(1,7),options:{fontSize:this.fontSize}}),t.push({data:"010101",options:{height:this.guardHeight}}),this.displayValue&&t.push({data:"00000000",text:this.text[7],options:{textAlign:"right",fontSize:this.fontSize}}),t}},{key:"encodeMiddleDigits",value:function(){var t=this.upcA[0],e=this.upcA[this.upcA.length-1],n=s[parseInt(e)][parseInt(t)];return(0,o.default)(this.middleDigits,n)}}]),e}(i.default);function p(t,e){for(var n=parseInt(t[t.length-1]),r=c[n],o="",i=0,u=0;u<r.length;u++){var f=r[u];o+="X"===f?t[i++]:f}return""+(o=""+e+o)+(0,a.checksum)(o)}e.default=l},function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0}),e.ITF14=e.ITF=void 0;var r=i(n(10)),o=i(n(32));function i(t){return t&&t.__esModule?t:{default:t}}e.ITF=r.default,e.ITF14=o.default},function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0});e.START_BIN="1010",e.END_BIN="11101",e.BINARIES=["00110","10001","01001","11000","00101","10100","01100","00011","10010","01010"]},function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0});var r,o=function(){function t(t,e){for(var n=0;n<e.length;n++){var r=e[n];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(t,r.key,r)}}return function(e,n,r){return n&&t(e.prototype,n),r&&t(e,r),e}}(),i=n(10),a=(r=i)&&r.__esModule?r:{default:r};var u=function(t){var e=t.substr(0,13).split("").map((function(t){return parseInt(t,10)})).reduce((function(t,e,n){return t+e*(3-n%2*2)}),0);return 10*Math.ceil(e/10)-e},f=function(t){function e(t,n){return function(t,e){if(!(t instanceof e))throw new TypeError("Cannot call a class as a function")}(this,e),-1!==t.search(/^[0-9]{13}$/)&&(t+=u(t)),function(t,e){if(!t)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return!e||"object"!=typeof e&&"function"!=typeof e?t:e}(this,(e.__proto__||Object.getPrototypeOf(e)).call(this,t,n))}return function(t,e){if("function"!=typeof e&&null!==e)throw new TypeError("Super expression must either be null or a function, not "+typeof e);t.prototype=Object.create(e&&e.prototype,{constructor:{value:t,enumerable:!1,writable:!0,configurable:!0}}),e&&(Object.setPrototypeOf?Object.setPrototypeOf(t,e):t.__proto__=e)}(e,t),o(e,[{key:"valid",value:function(){return-1!==this.data.search(/^[0-9]{14}$/)&&+this.data[13]===u(this.data)}}]),e}(a.default);e.default=f},function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0}),e.MSI1110=e.MSI1010=e.MSI11=e.MSI10=e.MSI=void 0;var r=f(n(4)),o=f(n(34)),i=f(n(35)),a=f(n(36)),u=f(n(37));function f(t){return t&&t.__esModule?t:{default:t}}e.MSI=r.default,e.MSI10=o.default,e.MSI11=i.default,e.MSI1010=a.default,e.MSI1110=u.default},function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0});var r,o=n(4),i=(r=o)&&r.__esModule?r:{default:r},a=n(6);var u=function(t){function e(t,n){return function(t,e){if(!(t instanceof e))throw new TypeError("Cannot call a class as a function")}(this,e),function(t,e){if(!t)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return!e||"object"!=typeof e&&"function"!=typeof e?t:e}(this,(e.__proto__||Object.getPrototypeOf(e)).call(this,t+(0,a.mod10)(t),n))}return function(t,e){if("function"!=typeof e&&null!==e)throw new TypeError("Super expression must either be null or a function, not "+typeof e);t.prototype=Object.create(e&&e.prototype,{constructor:{value:t,enumerable:!1,writable:!0,configurable:!0}}),e&&(Object.setPrototypeOf?Object.setPrototypeOf(t,e):t.__proto__=e)}(e,t),e}(i.default);e.default=u},function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0});var r,o=n(4),i=(r=o)&&r.__esModule?r:{default:r},a=n(6);var u=function(t){function e(t,n){return function(t,e){if(!(t instanceof e))throw new TypeError("Cannot call a class as a function")}(this,e),function(t,e){if(!t)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return!e||"object"!=typeof e&&"function"!=typeof e?t:e}(this,(e.__proto__||Object.getPrototypeOf(e)).call(this,t+(0,a.mod11)(t),n))}return function(t,e){if("function"!=typeof e&&null!==e)throw new TypeError("Super expression must either be null or a function, not "+typeof e);t.prototype=Object.create(e&&e.prototype,{constructor:{value:t,enumerable:!1,writable:!0,configurable:!0}}),e&&(Object.setPrototypeOf?Object.setPrototypeOf(t,e):t.__proto__=e)}(e,t),e}(i.default);e.default=u},function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0});var r,o=n(4),i=(r=o)&&r.__esModule?r:{default:r},a=n(6);var u=function(t){function e(t,n){return function(t,e){if(!(t instanceof e))throw new TypeError("Cannot call a class as a function")}(this,e),t+=(0,a.mod10)(t),t+=(0,a.mod10)(t),function(t,e){if(!t)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return!e||"object"!=typeof e&&"function"!=typeof e?t:e}(this,(e.__proto__||Object.getPrototypeOf(e)).call(this,t,n))}return function(t,e){if("function"!=typeof e&&null!==e)throw new TypeError("Super expression must either be null or a function, not "+typeof e);t.prototype=Object.create(e&&e.prototype,{constructor:{value:t,enumerable:!1,writable:!0,configurable:!0}}),e&&(Object.setPrototypeOf?Object.setPrototypeOf(t,e):t.__proto__=e)}(e,t),e}(i.default);e.default=u},function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0});var r,o=n(4),i=(r=o)&&r.__esModule?r:{default:r},a=n(6);var u=function(t){function e(t,n){return function(t,e){if(!(t instanceof e))throw new TypeError("Cannot call a class as a function")}(this,e),t+=(0,a.mod11)(t),t+=(0,a.mod10)(t),function(t,e){if(!t)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return!e||"object"!=typeof e&&"function"!=typeof e?t:e}(this,(e.__proto__||Object.getPrototypeOf(e)).call(this,t,n))}return function(t,e){if("function"!=typeof e&&null!==e)throw new TypeError("Super expression must either be null or a function, not "+typeof e);t.prototype=Object.create(e&&e.prototype,{constructor:{value:t,enumerable:!1,writable:!0,configurable:!0}}),e&&(Object.setPrototypeOf?Object.setPrototypeOf(t,e):t.__proto__=e)}(e,t),e}(i.default);e.default=u},function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0}),e.pharmacode=void 0;var r,o=function(){function t(t,e){for(var n=0;n<e.length;n++){var r=e[n];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(t,r.key,r)}}return function(e,n,r){return n&&t(e.prototype,n),r&&t(e,r),e}}(),i=n(0);var a=function(t){function e(t,n){!function(t,e){if(!(t instanceof e))throw new TypeError("Cannot call a class as a function")}(this,e);var r=function(t,e){if(!t)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return!e||"object"!=typeof e&&"function"!=typeof e?t:e}(this,(e.__proto__||Object.getPrototypeOf(e)).call(this,t,n));return r.number=parseInt(t,10),r}return function(t,e){if("function"!=typeof e&&null!==e)throw new TypeError("Super expression must either be null or a function, not "+typeof e);t.prototype=Object.create(e&&e.prototype,{constructor:{value:t,enumerable:!1,writable:!0,configurable:!0}}),e&&(Object.setPrototypeOf?Object.setPrototypeOf(t,e):t.__proto__=e)}(e,t),o(e,[{key:"encode",value:function(){for(var t=this.number,e="";!isNaN(t)&&0!=t;)t%2==0?(e="11100"+e,t=(t-2)/2):(e="100"+e,t=(t-1)/2);return{data:e=e.slice(0,-2),text:this.text}}},{key:"valid",value:function(){return this.number>=3&&this.number<=131070}}]),e}(((r=i)&&r.__esModule?r:{default:r}).default);e.pharmacode=a},function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0}),e.codabar=void 0;var r,o=function(){function t(t,e){for(var n=0;n<e.length;n++){var r=e[n];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(t,r.key,r)}}return function(e,n,r){return n&&t(e.prototype,n),r&&t(e,r),e}}(),i=n(0);var a=function(t){function e(t,n){!function(t,e){if(!(t instanceof e))throw new TypeError("Cannot call a class as a function")}(this,e),0===t.search(/^[0-9\-\$\:\.\+\/]+$/)&&(t="A"+t+"A");var r=function(t,e){if(!t)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return!e||"object"!=typeof e&&"function"!=typeof e?t:e}(this,(e.__proto__||Object.getPrototypeOf(e)).call(this,t.toUpperCase(),n));return r.text=r.options.text||r.text.replace(/[A-D]/g,""),r}return function(t,e){if("function"!=typeof e&&null!==e)throw new TypeError("Super expression must either be null or a function, not "+typeof e);t.prototype=Object.create(e&&e.prototype,{constructor:{value:t,enumerable:!1,writable:!0,configurable:!0}}),e&&(Object.setPrototypeOf?Object.setPrototypeOf(t,e):t.__proto__=e)}(e,t),o(e,[{key:"valid",value:function(){return-1!==this.data.search(/^[A-D][0-9\-\$\:\.\+\/]+[A-D]$/)}},{key:"encode",value:function(){for(var t=[],e=this.getEncodings(),n=0;n<this.data.length;n++)t.push(e[this.data.charAt(n)]),n!==this.data.length-1&&t.push("0");return{text:this.text,data:t.join("")}}},{key:"getEncodings",value:function(){return{0:"101010011",1:"101011001",2:"101001011",3:"110010101",4:"101101001",5:"110101001",6:"100101011",7:"100101101",8:"100110101",9:"110100101","-":"101001101",$:"101100101",":":"1101011011","/":"1101101011",".":"1101101101","+":"1011011011",A:"1011001001",B:"1001001011",C:"1010010011",D:"1010011001"}}}]),e}(((r=i)&&r.__esModule?r:{default:r}).default);e.codabar=a},function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0}),e.GenericBarcode=void 0;var r,o=function(){function t(t,e){for(var n=0;n<e.length;n++){var r=e[n];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(t,r.key,r)}}return function(e,n,r){return n&&t(e.prototype,n),r&&t(e,r),e}}(),i=n(0);var a=function(t){function e(t,n){return function(t,e){if(!(t instanceof e))throw new TypeError("Cannot call a class as a function")}(this,e),function(t,e){if(!t)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return!e||"object"!=typeof e&&"function"!=typeof e?t:e}(this,(e.__proto__||Object.getPrototypeOf(e)).call(this,t,n))}return function(t,e){if("function"!=typeof e&&null!==e)throw new TypeError("Super expression must either be null or a function, not "+typeof e);t.prototype=Object.create(e&&e.prototype,{constructor:{value:t,enumerable:!1,writable:!0,configurable:!0}}),e&&(Object.setPrototypeOf?Object.setPrototypeOf(t,e):t.__proto__=e)}(e,t),o(e,[{key:"encode",value:function(){return{data:"10101010101010101010101010101010101010101",text:this.text}}},{key:"valid",value:function(){return!0}}]),e}(((r=i)&&r.__esModule?r:{default:r}).default);e.GenericBarcode=a},function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0}),e.default=function(t){var e=[];return function t(n){if(Array.isArray(n))for(var r=0;r<n.length;r++)t(n[r]);else n.text=n.text||"",n.data=n.data||"",e.push(n)}(t),e}},function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0}),e.default=function(t){return t.marginTop=t.marginTop||t.margin,t.marginBottom=t.marginBottom||t.margin,t.marginRight=t.marginRight||t.margin,t.marginLeft=t.marginLeft||t.margin,t}},function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0});var r="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(t){return typeof t}:function(t){return t&&"function"==typeof Symbol&&t.constructor===Symbol&&t!==Symbol.prototype?"symbol":typeof t},o=u(n(44)),i=u(n(45)),a=n(14);function u(t){return t&&t.__esModule?t:{default:t}}function f(t){if("string"==typeof t)return function(t){var e=document.querySelectorAll(t);if(0===e.length)return;for(var n=[],r=0;r<e.length;r++)n.push(f(e[r]));return n}(t);if(Array.isArray(t)){for(var e=[],n=0;n<t.length;n++)e.push(f(t[n]));return e}if("undefined"!=typeof HTMLCanvasElement&&t instanceof HTMLImageElement)return u=t,{element:c=document.createElement("canvas"),options:(0,o.default)(u),renderer:i.default.CanvasRenderer,afterRender:function(){u.setAttribute("src",c.toDataURL())}};if(t&&t.nodeName&&"svg"===t.nodeName.toLowerCase()||"undefined"!=typeof SVGElement&&t instanceof SVGElement)return{element:t,options:(0,o.default)(t),renderer:i.default.SVGRenderer};if("undefined"!=typeof HTMLCanvasElement&&t instanceof HTMLCanvasElement)return{element:t,options:(0,o.default)(t),renderer:i.default.CanvasRenderer};if(t&&t.getContext)return{element:t,renderer:i.default.CanvasRenderer};if(t&&"object"===(void 0===t?"undefined":r(t))&&!t.nodeName)return{element:t,renderer:i.default.ObjectRenderer};throw new a.InvalidElementException;var u,c}e.default=f},function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0});var r=i(n(11)),o=i(n(12));function i(t){return t&&t.__esModule?t:{default:t}}e.default=function(t){var e={};for(var n in o.default)o.default.hasOwnProperty(n)&&(t.hasAttribute("jsbarcode-"+n.toLowerCase())&&(e[n]=t.getAttribute("jsbarcode-"+n.toLowerCase())),t.hasAttribute("data-"+n.toLowerCase())&&(e[n]=t.getAttribute("data-"+n.toLowerCase())));return e.value=t.getAttribute("jsbarcode-value")||t.getAttribute("data-value"),e=(0,r.default)(e)}},function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0});var r=a(n(46)),o=a(n(47)),i=a(n(48));function a(t){return t&&t.__esModule?t:{default:t}}e.default={CanvasRenderer:r.default,SVGRenderer:o.default,ObjectRenderer:i.default}},function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0});var r,o=function(){function t(t,e){for(var n=0;n<e.length;n++){var r=e[n];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(t,r.key,r)}}return function(e,n,r){return n&&t(e.prototype,n),r&&t(e,r),e}}(),i=n(7),a=(r=i)&&r.__esModule?r:{default:r},u=n(13);var f=function(){function t(e,n,r){!function(t,e){if(!(t instanceof e))throw new TypeError("Cannot call a class as a function")}(this,t),this.canvas=e,this.encodings=n,this.options=r}return o(t,[{key:"render",value:function(){if(!this.canvas.getContext)throw new Error("The browser does not support canvas.");this.prepareCanvas();for(var t=0;t<this.encodings.length;t++){var e=(0,a.default)(this.options,this.encodings[t].options);this.drawCanvasBarcode(e,this.encodings[t]),this.drawCanvasText(e,this.encodings[t]),this.moveCanvasDrawing(this.encodings[t])}this.restoreCanvas()}},{key:"prepareCanvas",value:function(){var t=this.canvas.getContext("2d");t.save(),(0,u.calculateEncodingAttributes)(this.encodings,this.options,t);var e=(0,u.getTotalWidthOfEncodings)(this.encodings),n=(0,u.getMaximumHeightOfEncodings)(this.encodings);this.canvas.width=e+this.options.marginLeft+this.options.marginRight,this.canvas.height=n,t.clearRect(0,0,this.canvas.width,this.canvas.height),this.options.background&&(t.fillStyle=this.options.background,t.fillRect(0,0,this.canvas.width,this.canvas.height)),t.translate(this.options.marginLeft,0)}},{key:"drawCanvasBarcode",value:function(t,e){var n,r=this.canvas.getContext("2d"),o=e.data;n="top"==t.textPosition?t.marginTop+t.fontSize+t.textMargin:t.marginTop,r.fillStyle=t.lineColor;for(var i=0;i<o.length;i++){var a=i*t.width+e.barcodePadding;"1"===o[i]?r.fillRect(a,n,t.width,t.height):o[i]&&r.fillRect(a,n,t.width,t.height*o[i])}}},{key:"drawCanvasText",value:function(t,e){var n,r,o=this.canvas.getContext("2d"),i=t.fontOptions+" "+t.fontSize+"px "+t.font;t.displayValue&&(r="top"==t.textPosition?t.marginTop+t.fontSize-t.textMargin:t.height+t.textMargin+t.marginTop+t.fontSize,o.font=i,"left"==t.textAlign||e.barcodePadding>0?(n=0,o.textAlign="left"):"right"==t.textAlign?(n=e.width-1,o.textAlign="right"):(n=e.width/2,o.textAlign="center"),o.fillText(e.text,n,r))}},{key:"moveCanvasDrawing",value:function(t){this.canvas.getContext("2d").translate(t.width,0)}},{key:"restoreCanvas",value:function(){this.canvas.getContext("2d").restore()}}]),t}();e.default=f},function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0});var r,o=function(){function t(t,e){for(var n=0;n<e.length;n++){var r=e[n];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(t,r.key,r)}}return function(e,n,r){return n&&t(e.prototype,n),r&&t(e,r),e}}(),i=n(7),a=(r=i)&&r.__esModule?r:{default:r},u=n(13);var f="http://www.w3.org/2000/svg",c=function(){function t(e,n,r){!function(t,e){if(!(t instanceof e))throw new TypeError("Cannot call a class as a function")}(this,t),this.svg=e,this.encodings=n,this.options=r,this.document=r.xmlDocument||document}return o(t,[{key:"render",value:function(){var t=this.options.marginLeft;this.prepareSVG();for(var e=0;e<this.encodings.length;e++){var n=this.encodings[e],r=(0,a.default)(this.options,n.options),o=this.createGroup(t,r.marginTop,this.svg);this.setGroupOptions(o,r),this.drawSvgBarcode(o,r,n),this.drawSVGText(o,r,n),t+=n.width}}},{key:"prepareSVG",value:function(){for(;this.svg.firstChild;)this.svg.removeChild(this.svg.firstChild);(0,u.calculateEncodingAttributes)(this.encodings,this.options);var t=(0,u.getTotalWidthOfEncodings)(this.encodings),e=(0,u.getMaximumHeightOfEncodings)(this.encodings),n=t+this.options.marginLeft+this.options.marginRight;this.setSvgAttributes(n,e),this.options.background&&this.drawRect(0,0,n,e,this.svg).setAttribute("style","fill:"+this.options.background+";")}},{key:"drawSvgBarcode",value:function(t,e,n){var r,o=n.data;r="top"==e.textPosition?e.fontSize+e.textMargin:0;for(var i=0,a=0,u=0;u<o.length;u++)a=u*e.width+n.barcodePadding,"1"===o[u]?i++:i>0&&(this.drawRect(a-e.width*i,r,e.width*i,e.height,t),i=0);i>0&&this.drawRect(a-e.width*(i-1),r,e.width*i,e.height,t)}},{key:"drawSVGText",value:function(t,e,n){var r,o,i=this.document.createElementNS(f,"text");e.displayValue&&(i.setAttribute("style","font:"+e.fontOptions+" "+e.fontSize+"px "+e.font),o="top"==e.textPosition?e.fontSize-e.textMargin:e.height+e.textMargin+e.fontSize,"left"==e.textAlign||n.barcodePadding>0?(r=0,i.setAttribute("text-anchor","start")):"right"==e.textAlign?(r=n.width-1,i.setAttribute("text-anchor","end")):(r=n.width/2,i.setAttribute("text-anchor","middle")),i.setAttribute("x",r),i.setAttribute("y",o),i.appendChild(this.document.createTextNode(n.text)),t.appendChild(i))}},{key:"setSvgAttributes",value:function(t,e){var n=this.svg;n.setAttribute("width",t+"px"),n.setAttribute("height",e+"px"),n.setAttribute("x","0px"),n.setAttribute("y","0px"),n.setAttribute("viewBox","0 0 "+t+" "+e),n.setAttribute("xmlns",f),n.setAttribute("version","1.1"),n.setAttribute("style","transform: translate(0,0)")}},{key:"createGroup",value:function(t,e,n){var r=this.document.createElementNS(f,"g");return r.setAttribute("transform","translate("+t+", "+e+")"),n.appendChild(r),r}},{key:"setGroupOptions",value:function(t,e){t.setAttribute("style","fill:"+e.lineColor+";")}},{key:"drawRect",value:function(t,e,n,r,o){var i=this.document.createElementNS(f,"rect");return i.setAttribute("x",t),i.setAttribute("y",e),i.setAttribute("width",n),i.setAttribute("height",r),o.appendChild(i),i}}]),t}();e.default=c},function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0});var r=function(){function t(t,e){for(var n=0;n<e.length;n++){var r=e[n];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(t,r.key,r)}}return function(e,n,r){return n&&t(e.prototype,n),r&&t(e,r),e}}();var o=function(){function t(e,n,r){!function(t,e){if(!(t instanceof e))throw new TypeError("Cannot call a class as a function")}(this,t),this.object=e,this.encodings=n,this.options=r}return r(t,[{key:"render",value:function(){this.object.encodings=this.encodings}}]),t}();e.default=o},function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0});var r=function(){function t(t,e){for(var n=0;n<e.length;n++){var r=e[n];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(t,r.key,r)}}return function(e,n,r){return n&&t(e.prototype,n),r&&t(e,r),e}}();var o=function(){function t(e){!function(t,e){if(!(t instanceof e))throw new TypeError("Cannot call a class as a function")}(this,t),this.api=e}return r(t,[{key:"handleCatch",value:function(t){if("InvalidInputException"!==t.name)throw t;if(this.api._options.valid===this.api._defaults.valid)throw t.message;this.api._options.valid(!1),this.api.render=function(){}}},{key:"wrapBarcodeCall",value:function(t){try{var e=t.apply(void 0,arguments);return this.api._options.valid(!0),e}catch(t){return this.handleCatch(t),this.api}}}]),t}();e.default=o}]);
+</script>
 <style>
   :root{
-    --ink:#1C1F26;
-    --paper:#FBF8F2;
-    --paper-alt:#F2ECDD;
-    --line:#DCD5C2;
-    --line-soft:#EAE4D4;
-    --stamp:#8B2E1F;
-    --stamp-soft:rgba(139,46,31,0.07);
-    --cod:#B9821E;
-    --cod-soft:#FBEEDA;
-    --teal:#2F5D58;
-    --teal-soft:#E7EFEC;
-    --text-dim:#6E6C62;
-    --canvas:#EDEAE1;
+    --jt-red:#ED1C24;
+    --jt-red-dark:#B4121A;
+    --jt-red-soft:rgba(237,28,36,0.08);
+    --ink:#15151a;
+    --paper:#f3f3f5;
     --panel:#ffffff;
-    --panel-line:#E4E1D8;
-    --radius:14px;
-    --shadow-label:0 30px 70px rgba(28,31,38,0.16), 0 6px 18px rgba(28,31,38,0.08);
+    --panel-alt:#fafafb;
+    --line:#e8e8ec;
+    --line-strong:#d9d9df;
+    --text:#1c1c1e;
+    --text-dim:#7b7b82;
+    --text-faint:#aeaeb4;
+    --ok:#189e50;
+    --ok-soft:#e6f7ed;
+    --info:#2a6fd6;
+    --info-soft:#e9f1fd;
+    --warn:#c07d00;
+    --warn-soft:#fdf1dc;
+    --danger:#d6362a;
+    --danger-soft:#fbe9e7;
+    --neutral:#4b4b52;
+    --neutral-soft:#eeeef0;
+    --radius-lg:18px;
+    --radius-md:14px;
+    --radius-sm:8px;
+    --shadow-sm:0 1px 2px rgba(20,20,25,0.05), 0 1px 1px rgba(20,20,25,0.03);
+    --shadow-md:0 6px 20px rgba(20,20,25,0.08), 0 2px 6px rgba(20,20,25,0.04);
+    --shadow-lg:0 24px 60px rgba(20,20,25,0.22), 0 6px 20px rgba(20,20,25,0.10);
+    --ease:cubic-bezier(.22,.9,.32,1);
   }
-  *{ box-sizing:border-box; }
-  html,body{ margin:0; padding:0; background:var(--canvas); color:var(--ink); font-family:'Kanit',sans-serif; }
-
-  .app{
-    min-height:100vh;
-    display:grid;
-    grid-template-columns:380px 1fr;
-    gap:0;
-  }
-  @media (max-width:920px){
-    .app{ grid-template-columns:1fr; }
-  }
-
-  /* ============ TOP BAR ============ */
-  .topbar{
-    grid-column:1/-1;
-    display:flex; align-items:center; justify-content:space-between;
-    padding:18px 26px; background:var(--ink); color:#fff;
-    flex-wrap:wrap; gap:10px;
-  }
-  .topbar .brandline{ display:flex; align-items:center; gap:11px; }
-  .topbar .mark{
-    width:30px; height:30px; border-radius:8px; background:var(--stamp);
-    display:flex; align-items:center; justify-content:center; flex-shrink:0;
-  }
-  .topbar .mark svg{ width:17px; height:17px; stroke:#fff; }
-  .topbar .title{ font-family:'Prompt',sans-serif; font-weight:700; font-style:italic; font-size:16px; letter-spacing:0.01em; }
-  .topbar .subtitle{ font-size:11px; color:#c7c6c2; margin-top:1px; }
-  .topbar .hint{ font-size:11.5px; color:#a9a7a0; }
-
-  /* ============ CONTROLS PANEL ============ */
-  .controls{
-    background:var(--panel);
-    border-right:1px solid var(--panel-line);
-    padding:22px 22px 90px;
-    overflow-y:auto;
-  }
-  @media (max-width:920px){
-    .controls{ order:2; border-right:none; border-top:1px solid var(--panel-line); padding-bottom:60px; }
-  }
-  .group{ margin-bottom:22px; }
-  .group-title{
-    font-family:'Prompt',sans-serif; font-size:11px; font-weight:700; letter-spacing:0.1em;
-    text-transform:uppercase; color:var(--stamp); margin-bottom:10px;
-    display:flex; align-items:center; gap:7px;
-  }
-  .group-title svg{ width:13px; height:13px; stroke:var(--stamp); }
-  .field{ margin-bottom:11px; }
-  .field label{ display:block; font-size:12px; color:var(--text-dim); margin-bottom:5px; font-weight:500; }
-  .field input, .field select, .field textarea{
-    width:100%; border:1.5px solid var(--line); border-radius:9px; padding:10px 12px;
-    font-family:'Kanit',sans-serif; font-size:13.5px; outline:none; background:#fff; color:var(--ink);
-    transition:border-color .15s;
-  }
-  .field textarea{ resize:vertical; min-height:52px; }
-  .field input:focus, .field select:focus, .field textarea:focus{ border-color:var(--stamp); box-shadow:0 0 0 3px var(--stamp-soft); }
-  .row2{ display:grid; grid-template-columns:1fr 1fr; gap:10px; }
-
-  .btn{
-    font-family:'Prompt',sans-serif; font-size:13px; font-weight:700; border:none; border-radius:9px;
-    padding:11px 16px; cursor:pointer; transition:transform .1s, background .15s; width:100%;
-    display:flex; align-items:center; justify-content:center; gap:7px;
-  }
-  .btn svg{ width:14px; height:14px; }
-  .btn:active{ transform:scale(0.98); }
-  .btn-primary{ background:var(--stamp); color:#fff; }
-  .btn-primary:hover{ background:#701f14; }
-  .btn-ghost{ background:var(--paper-alt); color:var(--ink); border:1px solid var(--line); }
-  .btn-ghost:hover{ background:var(--line-soft); }
-  .btn-row{ display:flex; gap:8px; }
-  .btn-row .btn{ flex:1; }
-
-  /* ============ STAGE (label preview) ============ */
-  .stage{
-    display:flex; align-items:flex-start; justify-content:center;
-    padding:44px 24px 90px;
-    overflow-x:auto;
-  }
-  @media (max-width:920px){ .stage{ order:1; padding:26px 16px 30px; } }
-
-  /* ============ LABEL ============ */
-  .label{
-    width:400px;
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{ scroll-behavior:smooth; }
+  html,body{
     background:var(--paper);
-    border-radius:6px;
-    box-shadow:var(--shadow-label);
+    color:var(--text);
+    font-family:'Kanit',sans-serif;
+    min-height:100vh;
+  }
+  ::selection{ background:var(--jt-red); color:#fff; }
+
+  /* ============ TOP STRIP ============ */
+  .track-strip{
+    height:5px; width:100%;
+    background:repeating-linear-gradient(90deg, var(--ink) 0 18px, var(--jt-red) 18px 36px);
+  }
+
+  /* ============ HEADER ============ */
+  header{
+    padding:34px 6vw 26px;
+    display:flex;
+    align-items:flex-end;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:18px;
+    background:
+      radial-gradient(1100px 420px at 82% -40%, rgba(255,255,255,0.14), transparent 60%),
+      repeating-linear-gradient(115deg, rgba(255,255,255,0.045) 0 2px, transparent 2px 44px),
+      linear-gradient(135deg, var(--jt-red) 0%, var(--jt-red-dark) 100%);
+    color:#fff;
     position:relative;
     overflow:hidden;
-    font-family:'Kanit',sans-serif;
-    color:var(--ink);
   }
-  .label::before{
-    content:""; position:absolute; inset:10px; border:1.5px dashed var(--line); border-radius:3px; pointer-events:none; z-index:0;
+  .header-inner{ position:relative; z-index:1; }
+  .brand-eyebrow{
+    font-family:'Prompt',sans-serif;
+    font-size:11px; font-weight:700; letter-spacing:0.32em;
+    color:#ffdedc;
   }
-  .label-inner{ position:relative; z-index:1; padding:20px 20px 16px; }
+  .brand-mark{ display:inline-flex; align-items:center; gap:13px; margin-top:8px; }
+  .jt-logo-icon{
+    display:inline-flex; align-items:center; justify-content:center;
+    width:54px; height:54px; background:#fff; border-radius:13px;
+    box-shadow:0 8px 20px rgba(0,0,0,0.22);
+    flex-shrink:0;
+  }
+  .jt-logo-icon svg{ width:35px; height:35px; }
+  .jt-wordmark{ display:flex; flex-direction:column; line-height:1; }
+  .jt-wordmark .jt-name{
+    font-family:'Prompt',sans-serif; font-style:italic; font-weight:800;
+    font-size:clamp(22px,3vw,30px); letter-spacing:0.01em; color:#fff;
+  }
+  .jt-wordmark .jt-tagline{
+    margin-top:4px; font-family:'Prompt',sans-serif; font-weight:700;
+    font-size:10px; letter-spacing:0.34em; color:#ffd6d2;
+  }
+  h1{
+    margin-top:16px;
+    font-family:'Prompt',sans-serif; font-weight:700;
+    font-size:clamp(19px,2.4vw,26px); letter-spacing:0.005em; color:#fff; line-height:1.25;
+  }
+  .status-plate{
+    font-family:'Prompt',sans-serif; font-size:12px; font-weight:500; color:#fff;
+    border:1px solid rgba(255,255,255,0.38);
+    background:rgba(255,255,255,0.10);
+    backdrop-filter:blur(6px);
+    padding:11px 18px; border-radius:10px;
+    display:flex; flex-direction:column; gap:4px;
+    position:relative; z-index:1;
+  }
+  .status-plate .status-line{ display:flex; align-items:center; gap:9px; }
+  .status-dot{ width:8px; height:8px; border-radius:50%; background:#ffd479; box-shadow:0 0 7px #ffd479; flex-shrink:0; }
+  .status-dot.ok{ background:#5be08a; box-shadow:0 0 7px #5be08a; }
+  .status-dot.err{ background:#ff9c92; box-shadow:0 0 7px #ff9c92; }
+  .status-synced{ font-size:10.5px; color:#ffdedc; padding-left:17px; }
 
-  .l-top{ display:flex; align-items:flex-start; justify-content:space-between; gap:10px; }
-  .l-brand{ font-family:'Prompt',sans-serif; font-style:italic; font-weight:800; font-size:19px; line-height:1.1; }
-  .l-brand-sub{ font-size:10px; color:var(--text-dim); letter-spacing:0.06em; margin-top:2px; }
-  .l-svc{
-    font-family:'Prompt',sans-serif; font-size:10.5px; font-weight:700; letter-spacing:0.05em;
-    background:var(--teal-soft); color:var(--teal); padding:5px 10px; border-radius:6px; white-space:nowrap;
+  /* ============ CONTROLS ============ */
+  .controls{ padding:26px 6vw 0; }
+  .search-wrap{ position:relative; max-width:640px; }
+  .search-wrap input{
+    width:100%; background:var(--panel); border:1.5px solid var(--line); color:var(--text);
+    font-family:'Kanit',sans-serif; font-size:16px;
+    padding:16px 46px 16px 48px; border-radius:12px; outline:none;
+    box-shadow:var(--shadow-sm);
+    transition:border-color .18s var(--ease), box-shadow .18s var(--ease);
+  }
+  .search-wrap input:focus{ border-color:var(--jt-red); box-shadow:0 0 0 4px var(--jt-red-soft); }
+  .search-wrap input::placeholder{ color:var(--text-faint); }
+  .search-icon{ position:absolute; left:16px; top:50%; transform:translateY(-50%); width:18px; height:18px; stroke:var(--text-dim); pointer-events:none; }
+  .search-clear{
+    position:absolute; right:10px; top:50%; transform:translateY(-50%);
+    width:26px; height:26px; border-radius:50%; border:none; background:var(--neutral-soft);
+    color:var(--text-dim); cursor:pointer; display:none; align-items:center; justify-content:center;
+    font-size:14px; line-height:1;
+  }
+  .search-clear.show{ display:flex; }
+  .search-clear:hover{ background:var(--danger-soft); color:var(--danger); }
+  .search-spinner{
+    position:absolute; right:12px; top:50%; transform:translateY(-50%);
+    width:16px; height:16px; border-radius:50%; border:2px solid var(--line-strong); border-top-color:var(--jt-red);
+    display:none; animation:spin .7s linear infinite;
+  }
+  .search-spinner.show{ display:block; }
+
+  .chips{ display:flex; flex-wrap:wrap; gap:8px; margin-top:16px; }
+  .chip{
+    font-size:13px; font-weight:500; padding:7px 15px; border-radius:999px;
+    border:1.5px solid var(--line); background:var(--panel); color:var(--text-dim);
+    cursor:pointer; user-select:none; transition:all .15s var(--ease); white-space:nowrap;
+  }
+  .chip:hover{ border-color:var(--jt-red); color:var(--jt-red); }
+  .chip.active{ background:var(--jt-red); border-color:var(--jt-red); color:#fff; box-shadow:0 4px 12px rgba(237,28,36,0.28); }
+
+  .result-count{ margin-top:16px; font-size:13px; color:var(--text-dim); font-weight:500; min-height:18px; }
+  .result-count b{ color:var(--jt-red); }
+
+  /* ============ GENERATOR BAR ============ */
+  .gen-bar{
+    margin:18px 0 0; padding:16px 18px; background:var(--panel); border:1.5px dashed var(--line-strong);
+    border-radius:var(--radius-md); display:flex; flex-wrap:wrap; align-items:center; gap:12px;
+  }
+  .gen-bar .gen-label{
+    display:flex; align-items:center; gap:8px; font-family:'Prompt',sans-serif; font-size:12.5px; font-weight:700;
+    color:var(--jt-red); letter-spacing:0.02em; white-space:nowrap;
+  }
+  .gen-bar .gen-label svg{ width:15px; height:15px; }
+  .gen-bar input{
+    flex:1 1 220px; min-width:180px; border:1.5px solid var(--line); border-radius:9px;
+    padding:10px 13px; font-family:'Kanit',sans-serif; font-size:14px; outline:none;
+    transition:border-color .15s var(--ease);
+  }
+  .gen-bar input:focus{ border-color:var(--jt-red); box-shadow:0 0 0 3px var(--jt-red-soft); }
+  .gen-btn{
+    font-family:'Prompt',sans-serif; font-size:13px; font-weight:700; color:#fff;
+    background:var(--jt-red); border:none; border-radius:9px; padding:11px 20px; cursor:pointer;
+    white-space:nowrap; transition:background .15s, transform .1s;
+  }
+  .gen-btn:hover{ background:var(--jt-red-dark); }
+  .gen-btn:active{ transform:scale(0.97); }
+  .gen-btn.secondary{ background:var(--neutral-soft); color:var(--text); }
+  .gen-btn.secondary:hover{ background:var(--line-strong); }
+  .gen-hint{ width:100%; font-size:11.5px; color:var(--text-faint); }
+
+  .gen-result{
+    margin-top:14px; padding:20px; background:var(--panel-alt); border:1px solid var(--line);
+    border-radius:var(--radius-md); display:none; flex-direction:column; align-items:center; gap:10px;
+  }
+  .gen-result.show{ display:flex; }
+  .gen-result svg{ max-width:100%; height:auto; }
+  .gen-result .gen-actions{ display:flex; gap:8px; flex-wrap:wrap; justify-content:center; }
+  .gen-result .gen-code-label{ font-family:'Prompt',sans-serif; font-size:12px; color:var(--text-dim); }
+
+  /* ============ GRID / CARDS ============ */
+  .grid{ padding:22px 6vw 70px; display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:16px; }
+
+  .card{
+    background:var(--panel); border:1px solid var(--line); border-radius:var(--radius-lg);
+    padding:20px 20px 18px; cursor:pointer; position:relative; overflow:hidden;
+    box-shadow:var(--shadow-sm);
+    transition:transform .2s var(--ease), box-shadow .2s var(--ease), border-color .2s var(--ease);
+    animation:cardIn .38s var(--ease) both;
+  }
+  .card::before{
+    content:""; position:absolute; left:0; top:0; bottom:0; width:4px; background:var(--jt-red);
+  }
+  .card:hover{ transform:translateY(-4px); box-shadow:var(--shadow-md); border-color:var(--line-strong); }
+  @keyframes cardIn{ from{ opacity:0; transform:translateY(10px); } to{ opacity:1; transform:translateY(0);} }
+
+  .card-top{ display:flex; align-items:center; justify-content:space-between; gap:10px; margin-bottom:13px; }
+  .status-badge{
+    display:inline-flex; align-items:center; gap:5px;
+    font-family:'Prompt',sans-serif; font-size:10px; font-weight:700; letter-spacing:0.04em;
+    padding:5px 11px; border-radius:6px;
+  }
+  .status-badge svg{ width:11px; height:11px; }
+  .badge-signed{ color:var(--ok); background:var(--ok-soft); }
+  .badge-out{ color:var(--info); background:var(--info-soft); }
+  .badge-pending{ color:var(--warn); background:var(--warn-soft); }
+  .badge-problem{ color:var(--danger); background:var(--danger-soft); }
+  .badge-transit{ color:var(--neutral); background:var(--neutral-soft); }
+
+  .card-tracking-mono{ font-family:'Prompt',sans-serif; font-size:11px; font-weight:600; color:var(--text-faint); letter-spacing:0.02em; }
+
+  .card-tracking{ font-family:'Prompt',sans-serif; font-size:16px; font-weight:700; letter-spacing:0.005em; margin-bottom:10px; word-break:break-all; color:var(--ink); }
+
+  /* mini stepper */
+  .mini-steps{ display:flex; align-items:center; margin:14px 0 15px; }
+  .mini-step{ display:flex; flex-direction:column; align-items:center; flex:1; position:relative; }
+  .mini-step .dot{
+    width:16px; height:16px; border-radius:50%; background:var(--panel);
+    border:2.5px solid var(--line-strong); display:flex; align-items:center; justify-content:center;
+    z-index:1; transition:all .2s var(--ease);
+  }
+  .mini-step .dot svg{ width:8px; height:8px; opacity:0; transition:opacity .15s; }
+  .mini-step.done .dot{ border-color:var(--jt-red); background:var(--jt-red); }
+  .mini-step.done .dot svg{ opacity:1; stroke:#fff; }
+  .mini-step.current .dot{ border-color:var(--jt-red); background:#fff; box-shadow:0 0 0 4px var(--jt-red-soft); }
+  .mini-step.current .dot::after{ content:""; width:6px; height:6px; border-radius:50%; background:var(--jt-red); }
+  .mini-step .label{ margin-top:6px; font-size:9.5px; color:var(--text-faint); font-weight:500; text-align:center; line-height:1.2; }
+  .mini-step.done .label, .mini-step.current .label{ color:var(--text); font-weight:600; }
+  .mini-step .connector{
+    position:absolute; top:7.5px; left:50%; width:100%; height:2px; background:var(--line-strong); z-index:0;
+  }
+  .mini-step:first-child .connector{ display:none; }
+  .mini-step.done .connector, .mini-step.current .connector{ background:var(--jt-red); }
+
+  .alert-ribbon{
+    display:flex; align-items:flex-start; gap:8px; padding:9px 11px; border-radius:9px;
+    font-size:12px; line-height:1.4; margin-bottom:13px;
+  }
+  .alert-ribbon svg{ width:14px; height:14px; flex-shrink:0; margin-top:1px; }
+  .alert-ribbon.is-pending{ background:var(--warn-soft); color:#8a5c00; }
+  .alert-ribbon.is-problem{ background:var(--danger-soft); color:var(--danger); }
+
+  .card-title{ font-size:15.5px; font-weight:600; line-height:1.35; margin-bottom:3px; }
+  .card-sub{ font-size:12.5px; color:var(--text-dim); line-height:1.5; }
+  .card-meta{ margin-top:13px; padding-top:12px; border-top:1px dashed var(--line); font-size:12px; color:var(--text-dim); display:flex; justify-content:space-between; gap:8px; }
+  .card-barcode-btn{
+    margin-top:10px; width:100%; font-family:'Prompt',sans-serif; font-size:11.5px; font-weight:600;
+    color:var(--jt-red); background:var(--jt-red-soft); border:1px dashed var(--jt-red);
+    border-radius:8px; padding:8px 10px; cursor:pointer; display:flex; align-items:center; justify-content:center; gap:6px;
+    transition:background .15s;
+  }
+  .card-barcode-btn svg{ width:13px; height:13px; }
+  .card-barcode-btn:hover{ background:rgba(237,28,36,0.14); }
+
+  /* ============ SKELETON ============ */
+  .skeleton-card{
+    background:var(--panel); border:1px solid var(--line); border-radius:var(--radius-lg); padding:20px; overflow:hidden; position:relative;
+  }
+  .skel-line{ height:12px; border-radius:6px; background:linear-gradient(90deg, var(--neutral-soft) 25%, #f5f5f7 37%, var(--neutral-soft) 63%); background-size:400% 100%; animation:shimmer 1.4s ease infinite; }
+  @keyframes shimmer{ 0%{ background-position:100% 0; } 100%{ background-position:0 0; } }
+
+  .empty-state, .error-state{ grid-column:1/-1; padding:70px 6vw; text-align:center; color:var(--text-dim); }
+  .empty-state svg{ width:52px; height:52px; stroke:var(--text-faint); margin-bottom:14px; }
+  .empty-state .empty-title{ font-family:'Prompt',sans-serif; font-weight:700; font-size:15px; color:var(--text); margin-bottom:6px; }
+  .empty-state .empty-sub{ font-size:13px; max-width:360px; margin:0 auto; line-height:1.6; }
+  .error-state code{ display:block; margin-top:12px; background:var(--panel-alt); border:1px solid var(--line); padding:12px 16px; border-radius:8px; font-size:12px; color:var(--jt-red-dark); max-width:520px; margin-inline:auto; white-space:pre-wrap; text-align:left; }
+
+  /* ============ MODAL ============ */
+  .overlay{
+    position:fixed; inset:0; background:rgba(15,15,18,0.58); backdrop-filter:blur(2px);
+    display:flex; align-items:flex-start; justify-content:center;
+    padding:min(5vh,40px) 20px 20px; z-index:9999; overflow-y:auto;
+    opacity:0; pointer-events:none; transition:opacity .22s var(--ease);
+  }
+  .overlay.show{ opacity:1; pointer-events:auto; }
+  .modal{
+    background:var(--panel); border-radius:20px;
+    max-width:920px; width:100%; max-height:calc(100vh - min(5vh,40px) - 20px); overflow-y:auto;
+    transform:translateY(16px) scale(.985); transition:transform .26s var(--ease);
+    box-shadow:var(--shadow-lg);
+    position:relative; z-index:1;
+  }
+  .overlay.show .modal{ transform:translateY(0) scale(1); }
+  .modal-head{
+    padding:26px 28px 20px; position:sticky; top:0; z-index:2;
+    background:linear-gradient(180deg, var(--panel) 78%, rgba(255,255,255,0));
+    border-bottom:1px solid var(--line);
+  }
+  .modal-close{
+    position:absolute; top:20px; right:20px; width:32px; height:32px; border-radius:50%;
+    background:var(--neutral-soft); border:none; color:var(--text-dim); font-size:16px; cursor:pointer;
+    display:flex; align-items:center; justify-content:center; transition:all .15s;
+  }
+  .modal-close:hover{ background:var(--danger-soft); color:var(--danger); }
+  .modal-tracking{ font-family:'Prompt',sans-serif; font-size:20px; font-weight:700; margin:12px 0 3px; word-break:break-all; color:var(--ink); }
+  .modal-sub{ font-size:12.5px; color:var(--text-dim); }
+  .modal-body{ padding:6px 28px 28px; }
+  .modal-columns{ display:grid; grid-template-columns:1.05fr 1fr; gap:28px; align-items:start; }
+  .modal-col-right{ display:flex; flex-direction:column; gap:16px; }
+  @media (max-width:700px){
+    .modal-columns{ grid-template-columns:1fr; }
   }
 
-  .l-cod{
-    margin-top:10px; display:inline-flex; align-items:baseline; gap:6px;
-    background:var(--cod-soft); border:1.5px solid var(--cod); color:#7a5711;
-    padding:7px 12px; border-radius:8px;
+  .modal-barcode-box{
+    background:#fff; border:1px solid var(--line); border-radius:var(--radius-md);
+    padding:18px 14px 12px; display:flex; flex-direction:column; align-items:center; gap:8px;
   }
-  .l-cod .cod-label{ font-family:'Prompt',sans-serif; font-size:10.5px; font-weight:800; letter-spacing:0.06em; color:var(--cod); }
-  .l-cod .cod-amount{ font-family:'JetBrains Mono',monospace; font-size:16px; font-weight:700; }
-  .l-cod.hidden{ display:none; }
-
-  /* route stamp + qr row */
-  .l-stamprow{ display:flex; align-items:center; justify-content:space-between; margin-top:14px; gap:12px; }
-  .route-stamp{
-    transform:rotate(-3deg);
-    border:2.5px solid var(--stamp); color:var(--stamp);
-    padding:8px 14px; border-radius:5px; background:var(--stamp-soft);
-    font-family:'JetBrains Mono',monospace; font-weight:800; font-size:19px; letter-spacing:0.03em;
-    position:relative;
+  .modal-barcode-box svg{ max-width:100%; height:auto; }
+  .modal-barcode-box .bc-caption{ font-size:11px; color:var(--text-faint); }
+  .modal-barcode-actions{ display:flex; gap:8px; margin-top:2px; }
+  .bc-mini-btn{
+    font-family:'Prompt',sans-serif; font-size:11px; font-weight:600; color:var(--text-dim);
+    background:var(--neutral-soft); border:none; border-radius:7px; padding:6px 12px; cursor:pointer;
   }
-  .route-stamp::after{
-    content:"เส้นทาง"; position:absolute; top:-9px; left:12px; background:var(--paper);
-    font-family:'Prompt',sans-serif; font-size:8.5px; font-weight:700; letter-spacing:0.12em;
-    padding:0 5px; color:var(--stamp); transform:rotate(0deg);
+  .bc-mini-btn:hover{ background:var(--line-strong); color:var(--text); }
+
+  /* timeline */
+  .timeline{ margin:22px 0 6px; }
+  .modal-columns .timeline{ margin-top:0; }
+  .tl-heading{ font-family:'Prompt',sans-serif; font-size:11px; font-weight:700; letter-spacing:0.09em; color:var(--text-faint); text-transform:uppercase; margin-bottom:14px; }
+  .tl-item{ display:flex; gap:14px; position:relative; padding-bottom:22px; }
+  .tl-item:last-child{ padding-bottom:0; }
+  .tl-item:last-child .tl-line{ display:none; }
+  .tl-node{ flex-shrink:0; display:flex; flex-direction:column; align-items:center; }
+  .tl-dot{
+    width:30px; height:30px; border-radius:50%; display:flex; align-items:center; justify-content:center;
+    background:var(--neutral-soft); border:2px solid var(--line-strong); z-index:1;
   }
-  .l-qr{
-    background:#fff; padding:6px; border-radius:6px; border:1px solid var(--line); flex-shrink:0;
-    display:flex; align-items:center; justify-content:center; width:76px; height:76px;
+  .tl-dot svg{ width:15px; height:15px; stroke:var(--text-faint); }
+  .tl-item.done .tl-dot{ background:var(--jt-red); border-color:var(--jt-red); }
+  .tl-item.done .tl-dot svg{ stroke:#fff; }
+  .tl-item.warn .tl-dot{ background:var(--warn-soft); border-color:var(--warn); }
+  .tl-item.warn .tl-dot svg{ stroke:var(--warn); }
+  .tl-item.danger .tl-dot{ background:var(--danger-soft); border-color:var(--danger); }
+  .tl-item.danger .tl-dot svg{ stroke:var(--danger); }
+  .tl-item.success .tl-dot{ background:var(--ok); border-color:var(--ok); }
+  .tl-item.success .tl-dot svg{ stroke:#fff; }
+  .tl-line{ position:absolute; top:30px; left:15px; width:2px; bottom:0; background:var(--line-strong); }
+  .tl-item.done .tl-line{ background:var(--jt-red); }
+  .tl-content{ flex:1; padding-top:4px; }
+  .tl-label{ font-size:14px; font-weight:600; color:var(--text); }
+  .tl-time{ font-size:12px; color:var(--text-dim); margin-top:2px; }
+  .tl-detail{ font-size:12.5px; color:var(--text-dim); margin-top:5px; background:var(--panel-alt); border:1px solid var(--line); border-radius:8px; padding:8px 11px; line-height:1.5; }
+  .tl-item.warn .tl-detail{ color:#8a5c00; background:var(--warn-soft); border-color:transparent; }
+  .tl-item.danger .tl-detail{ color:var(--danger); background:var(--danger-soft); border-color:transparent; }
+
+  /* info panels */
+  .info-grid{ display:grid; grid-template-columns:1fr; gap:14px; margin-top:0; }
+  @media (max-width:700px){ .info-grid{ margin-top:22px; } }
+  .info-panel{ background:var(--panel-alt); border:1px solid var(--line); border-radius:var(--radius-md); padding:16px 17px; }
+  .info-panel-title{ display:flex; align-items:center; gap:7px; font-family:'Prompt',sans-serif; font-size:11px; font-weight:700; letter-spacing:0.08em; color:var(--jt-red); text-transform:uppercase; margin-bottom:11px; }
+  .info-panel-title svg{ width:13px; height:13px; }
+  .field-row{ display:flex; justify-content:space-between; gap:12px; padding:6px 0; font-size:13.5px; }
+  .field-row + .field-row{ border-top:1px dashed var(--line); }
+  .field-label{ color:var(--text-dim); white-space:nowrap; }
+  .field-value{ text-align:right; font-weight:500; }
+
+  .summary-strip{ display:flex; flex-wrap:wrap; gap:8px; margin-top:16px; }
+  .summary-pill{ background:var(--panel-alt); border:1px solid var(--line); border-radius:999px; padding:7px 13px; font-size:12px; display:flex; gap:6px; align-items:center; }
+  .summary-pill b{ color:var(--ink); font-weight:600; }
+  .summary-pill .pill-label{ color:var(--text-dim); }
+
+  .modal-empty-note{ font-size:13px; color:var(--text-dim); font-style:italic; padding:20px 0; text-align:center; }
+
+  /* ============ FOOTER ============ */
+  footer{ text-align:center; padding:26px; font-size:12px; color:var(--text-dim); border-top:1px solid var(--line); background:var(--panel); }
+  footer .footer-brand{ color:var(--jt-red); font-weight:700; }
+
+  /* ============ DEBUG ============ */
+  .debug-toggle{
+    position:fixed; bottom:18px; right:18px; z-index:60;
+    background:var(--ink); color:#fff; border:none; border-radius:999px; width:44px; height:44px;
+    font-size:17px; cursor:pointer; box-shadow:var(--shadow-md);
+    display:flex; align-items:center; justify-content:center; transition:transform .15s;
   }
-  .l-qr div{ width:100% !important; height:100% !important; }
-  .l-qr img, .l-qr canvas{ width:100% !important; height:100% !important; }
-
-  /* barcode block */
-  .l-barcode-block{
-    margin-top:16px; background:#fff; border:1px solid var(--line); border-radius:9px;
-    padding:14px 10px 10px; display:flex; flex-direction:column; align-items:center;
+  .debug-toggle:hover{ background:var(--jt-red); transform:scale(1.06); }
+  .debug-panel{
+    position:fixed; bottom:70px; right:18px; z-index:60;
+    width:min(420px, calc(100vw - 36px)); max-height:60vh; overflow-y:auto;
+    background:#111; color:#d6ffd6; font-family:'JetBrains Mono','Consolas',monospace;
+    font-size:12px; line-height:1.6; border-radius:12px; padding:14px 16px;
+    box-shadow:var(--shadow-lg);
+    display:none; white-space:pre-wrap; word-break:break-word;
   }
-  .l-barcode-block svg{ max-width:100%; height:auto; }
-  .l-tracking{
-    margin-top:2px; font-family:'JetBrains Mono',monospace; font-weight:700; font-size:16px; letter-spacing:0.04em;
+  .debug-panel.show{ display:block; }
+  .debug-panel .debug-title{ color:#fff; font-weight:700; margin-bottom:8px; display:flex; justify-content:space-between; align-items:center; }
+  .debug-panel .debug-clear{ background:none; border:1px solid #444; color:#aaa; font-size:11px; padding:2px 8px; border-radius:6px; cursor:pointer; }
+  .debug-panel .debug-line{ border-bottom:1px dashed #333; padding:4px 0; }
+  .debug-panel .debug-line.warn{ color:#ffd479; }
+  .debug-panel .debug-line.error{ color:#ff8a80; }
+
+  @keyframes spin{ to{ transform:rotate(360deg); } }
+
+  @media (prefers-reduced-motion:reduce){
+    *{ animation-duration:0.001ms !important; transition-duration:0.001ms !important; }
   }
-
-  .l-divider{ height:1px; background:repeating-linear-gradient(90deg, var(--line) 0 6px, transparent 6px 11px); margin:16px 0; }
-
-  .l-section-title{
-    font-family:'Prompt',sans-serif; font-size:9.5px; font-weight:700; letter-spacing:0.12em;
-    color:var(--text-dim); text-transform:uppercase; margin-bottom:6px;
+  @media (max-width:480px){
+    .jt-logo-icon{ width:46px; height:46px; }
+    .jt-logo-icon svg{ width:30px; height:30px; }
+    .debug-toggle{ width:40px; height:40px; bottom:14px; right:14px; }
   }
-  .l-recipient-name{ font-size:19px; font-weight:600; line-height:1.3; }
-  .l-recipient-phone{ font-family:'JetBrains Mono',monospace; font-size:13px; color:var(--text-dim); margin-top:2px; }
-  .l-recipient-addr{ font-size:13.5px; color:var(--ink); margin-top:6px; line-height:1.55; }
-
-  .l-meta-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin-top:4px; }
-  .l-meta-item{ background:var(--paper-alt); border-radius:7px; padding:8px 9px; }
-  .l-meta-item .m-label{ font-size:9px; color:var(--text-dim); letter-spacing:0.04em; }
-  .l-meta-item .m-value{ font-size:12.5px; font-weight:600; margin-top:2px; word-break:break-word; }
-
-  .l-sender{ margin-top:14px; font-size:12px; color:var(--text-dim); line-height:1.6; }
-  .l-sender b{ color:var(--ink); font-weight:600; }
-
-  .l-footer{
-    margin-top:14px; padding-top:10px; border-top:1px solid var(--line-soft);
-    display:flex; justify-content:space-between; font-size:9.5px; color:#a6a49c; letter-spacing:0.03em;
-  }
-
-  @media print{
-    body{ background:#fff; }
-    .topbar, .controls{ display:none !important; }
-    .stage{ padding:0; }
-    .label{ box-shadow:none; }
-    .app{ display:block; }
-  }
-
-  ::-webkit-scrollbar{ width:8px; height:8px; }
-  ::-webkit-scrollbar-thumb{ background:#c9c5b8; border-radius:8px; }
 </style>
 </head>
 <body>
 
-<div class="app">
+  <div class="track-strip"></div>
 
-  <div class="topbar">
-    <div class="brandline">
-      <span class="mark">
-        <svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8l-9-5-9 5 9 5 9-5z"/><path d="M3 8v8l9 5 9-5V8"/><path d="M12 13v8"/></svg>
-      </span>
-      <div>
-        <div class="title">ใบปะหน้าพัสดุ</div>
-        <div class="subtitle">เครื่องมือสร้างใบปะหน้าสำหรับร้านของคุณเอง — ไม่ผูกกับผู้ให้บริการขนส่งเจ้าใดเจ้าหนึ่ง</div>
+  <header>
+    <div class="header-inner">
+      <div class="brand-eyebrow">PARCEL TRACKING DATABASE</div>
+      <div class="brand-mark">
+        <span class="jt-logo-icon">
+          <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M8 10 L20 6 L20 34 L8 30 Z" fill="#ED1C24"/>
+            <path d="M22 8 L34 12 L34 28 L22 32 L22 8 Z" fill="#15151a"/>
+            <path d="M13 15 L13 26 C13 28.5 15.5 29.5 17 27.5 L17 15" stroke="#fff" stroke-width="2.4" stroke-linecap="round" fill="none"/>
+            <path d="M26 14 L26 26" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/>
+            <path d="M23.5 14 L28.5 14" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/>
+          </svg>
+        </span>
+        <div class="jt-wordmark">
+          <span class="jt-name">J&amp;T Express</span>
+          <span class="jt-tagline">ส่งไว ทันใจ ทุกเส้นทาง</span>
+        </div>
       </div>
+      <h1>ระบบค้นหาสถานะพัสดุ</h1>
     </div>
-    <div class="hint">แก้ไขข้อมูลด้านซ้าย ตัวอย่างใบปะหน้าจะอัปเดตทันที</div>
-  </div>
+    <div class="status-plate">
+      <div class="status-line">
+        <span class="status-dot" id="statusDot"></span>
+        <span id="statusText">กำลังเชื่อมต่อ Google Sheet...</span>
+      </div>
+      <span class="status-synced" id="statusSynced"></span>
+    </div>
+  </header>
 
-  <!-- ============ CONTROLS ============ -->
   <div class="controls">
-
-    <div class="group">
-      <div class="group-title">
-        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="M7 4v16"/></svg>
-        แบรนด์ &amp; บริการ
-      </div>
-      <div class="field"><label>ชื่อร้าน / แบรนด์</label><input id="f-brand" value="ร้านของคุณ"></div>
-      <div class="row2">
-        <div class="field"><label>ประเภทบริการ</label>
-          <select id="f-service">
-            <option>มาตรฐาน</option>
-            <option>ด่วน</option>
-            <option>ด่วนพิเศษ</option>
-          </select>
-        </div>
-        <div class="field"><label>รหัสเส้นทาง</label><input id="f-route" value="R2 K14-08"></div>
-      </div>
+    <div class="search-wrap">
+      <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+      <input id="searchInput" type="text" placeholder="ค้นหาเลขพัสดุ / ชื่อผู้รับ / ชื่อผู้ส่ง / เบอร์โทร / ที่อยู่...">
+      <div class="search-spinner" id="searchSpinner"></div>
+      <button class="search-clear" id="searchClear" aria-label="ล้างคำค้นหา">✕</button>
     </div>
+    <div class="chips" id="chipRow"></div>
+    <div class="result-count" id="resultCount"></div>
 
-    <div class="group">
-      <div class="group-title">
-        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="3"/></svg>
-        การชำระเงิน &amp; เลขพัสดุ
-      </div>
-      <div class="field">
-        <label><input type="checkbox" id="f-cod-on" checked style="width:auto;margin-right:6px;">เก็บเงินปลายทาง (COD)</label>
-      </div>
-      <div class="field"><label>ยอดเก็บเงินปลายทาง (บาท)</label><input id="f-cod-amount" value="1250"></div>
-      <div class="field"><label>เลขพัสดุ (Tracking No.)</label>
-        <div class="btn-row">
-          <input id="f-tracking" value="TH2026839215XX" style="flex:2;">
+    <!-- ===== BARCODE GENERATOR ===== -->
+    <div class="gen-bar">
+      <span class="gen-label">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 4v16M11 4v16M15 4v10M17.5 4v16"/></svg>
+        สร้างบาร์โค้ด
+      </span>
+      <input id="barcodeInput" type="text" placeholder="พิมพ์เลขพัสดุที่ต้องการสร้างบาร์โค้ด เช่น JTTH20206383262">
+      <button class="gen-btn" id="genBarcodeBtn">สร้างบาร์โค้ด</button>
+      <button class="gen-btn secondary" id="genFromLatestBtn">ใช้เลขพัสดุล่าสุดในระบบ</button>
+      <div class="gen-hint">ระบบจะสร้างบาร์โค้ดแบบ Code128 จากข้อความ/เลขพัสดุที่พิมพ์ ใช้สำหรับพิมพ์ป้ายหรือแนบคู่กับรายการพัสดุของคุณเอง</div>
+
+      <div class="gen-result" id="genResult">
+        <svg id="genBarcodeSvg"></svg>
+        <div class="gen-code-label" id="genCodeLabel"></div>
+        <div class="gen-actions">
+          <button class="bc-mini-btn" id="genDownloadBtn">ดาวน์โหลด PNG</button>
+          <button class="bc-mini-btn" id="genPrintBtn">พิมพ์</button>
+          <button class="bc-mini-btn" id="genClearBtn">ล้าง</button>
         </div>
-      </div>
-      <button class="btn btn-ghost" id="btn-random-tracking">
-        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 2v6h-6"/><path d="M3 12a9 9 0 0115-6.7L21 8"/><path d="M3 22v-6h6"/><path d="M21 12a9 9 0 01-15 6.7L3 16"/></svg>
-        สุ่มเลขพัสดุใหม่
-      </button>
-    </div>
-
-    <div class="group">
-      <div class="group-title">
-        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/></svg>
-        ผู้รับ
-      </div>
-      <div class="field"><label>ชื่อผู้รับ</label><input id="f-r-name" value="สมชาย ใจดี"></div>
-      <div class="field"><label>เบอร์โทร</label><input id="f-r-phone" value="081-234-5678"></div>
-      <div class="field"><label>ที่อยู่</label><textarea id="f-r-addr">99/1 หมู่บ้านสวนสุข ถ.พหลโยธิน แขวงลาดยาว เขตจตุจักร กรุงเทพฯ 10900</textarea></div>
-    </div>
-
-    <div class="group">
-      <div class="group-title">
-        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7z"/></svg>
-        ผู้ส่ง
-      </div>
-      <div class="field"><label>ชื่อผู้ส่ง</label><input id="f-s-name" value="ร้านของคุณ"></div>
-      <div class="field"><label>เบอร์โทร</label><input id="f-s-phone" value="02-123-4567"></div>
-    </div>
-
-    <div class="group">
-      <div class="group-title">
-        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8l-9-5-9 5 9 5 9-5z"/><path d="M3 8v8l9 5 9-5V8"/></svg>
-        รายละเอียดพัสดุ
-      </div>
-      <div class="row2">
-        <div class="field"><label>น้ำหนัก</label><input id="f-weight" value="1.2 กก."></div>
-        <div class="field"><label>ประเภทพัสดุ</label><input id="f-type" value="กล่อง"></div>
-      </div>
-      <div class="field"><label>รหัสอ้างอิง (คำสั่งซื้อ)</label><input id="f-ref" value="ORD-88213"></div>
-    </div>
-
-    <div class="btn-row" style="margin-top:6px;">
-      <button class="btn btn-primary" id="btn-print">
-        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M6 9V2h12v7"/><path d="M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"/><path d="M6 14h12v8H6z"/></svg>
-        พิมพ์ใบปะหน้า
-      </button>
-      <button class="btn btn-ghost" id="btn-png">
-        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg>
-        บันทึกเป็น PNG
-      </button>
-    </div>
-  </div>
-
-  <!-- ============ PREVIEW STAGE ============ -->
-  <div class="stage">
-    <div class="label" id="label">
-      <div class="label-inner">
-
-        <div class="l-top">
-          <div>
-            <div class="l-brand" id="p-brand">ร้านของคุณ</div>
-            <div class="l-brand-sub">ใบปะหน้าพัสดุ · SHIPPING LABEL</div>
-          </div>
-          <div class="l-svc" id="p-service">มาตรฐาน</div>
-        </div>
-
-        <div class="l-cod" id="p-cod-box">
-          <span class="cod-label">COD เก็บปลายทาง</span>
-          <span class="cod-amount" id="p-cod-amount">฿1,250</span>
-        </div>
-
-        <div class="l-stamprow">
-          <div class="route-stamp" id="p-route">R2 K14-08</div>
-          <div class="l-qr" id="p-qr"></div>
-        </div>
-
-        <div class="l-barcode-block">
-          <svg id="p-barcode"></svg>
-          <div class="l-tracking" id="p-tracking">TH2026839215XX</div>
-        </div>
-
-        <div class="l-divider"></div>
-
-        <div>
-          <div class="l-section-title">ผู้รับ</div>
-          <div class="l-recipient-name" id="p-r-name">สมชาย ใจดี</div>
-          <div class="l-recipient-phone" id="p-r-phone">081-234-5678</div>
-          <div class="l-recipient-addr" id="p-r-addr">99/1 หมู่บ้านสวนสุข ถ.พหลโยธิน แขวงลาดยาว เขตจตุจักร กรุงเทพฯ 10900</div>
-        </div>
-
-        <div class="l-meta-grid">
-          <div class="l-meta-item"><div class="m-label">น้ำหนัก</div><div class="m-value" id="p-weight">1.2 กก.</div></div>
-          <div class="l-meta-item"><div class="m-label">ประเภท</div><div class="m-value" id="p-type">กล่อง</div></div>
-          <div class="l-meta-item"><div class="m-label">อ้างอิง</div><div class="m-value" id="p-ref">ORD-88213</div></div>
-        </div>
-
-        <div class="l-sender">ผู้ส่ง: <b id="p-s-name">ร้านของคุณ</b> · <span id="p-s-phone">02-123-4567</span></div>
-
-        <div class="l-footer">
-          <span>โปรดตรวจสอบสภาพพัสดุก่อนเซ็นรับ</span>
-          <span id="p-date"></span>
-        </div>
-
       </div>
     </div>
   </div>
 
-</div>
+  <main id="grid" class="grid"></main>
+
+  <footer><span class="footer-brand">J&amp;T Express</span> Parcel Search — ข้อมูลซิงก์อัตโนมัติจาก Google Sheet</footer>
+
+  <div class="overlay" id="overlay">
+    <div class="modal" id="modalBody"></div>
+  </div>
+
+  <button class="debug-toggle" id="debugToggle" aria-label="Debug">🐞</button>
+  <div class="debug-panel" id="debugPanel">
+    <div class="debug-title">
+      <span>Debug Log</span>
+      <button class="debug-clear" id="debugClear">ล้าง</button>
+    </div>
+    <div id="debugContent"></div>
+  </div>
 
 <script>
-function el(id){ return document.getElementById(id); }
+/* ===================== CONFIG ===================== */
+const DEBUG = true;
+const SHEET_ID = "1TfNpUugAxDPSdTm_6I90v-tdzn_Snkz6yDSRvA09yPc";
+const GID = "0";
+const CSV_URL = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/export?format=csv&gid=${GID}`;
+const SEARCH_DEBOUNCE_MS = 260;
 
-function refresh(){
-  const brand = el("f-brand").value || "ร้านของคุณ";
-  el("p-brand").textContent = brand;
-  el("p-service").textContent = el("f-service").value;
-  el("p-route").textContent = el("f-route").value || "-";
+/* ===================== ICONS ===================== */
+const ICON = {
+  check: `<svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L19 8"/></svg>`,
+  box: `<svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8l-9-5-9 5 9 5 9-5z"/><path d="M3 8v8l9 5 9-5V8"/><path d="M12 13v8"/></svg>`,
+  truck: `<svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="6" width="13" height="11"/><path d="M14 10h4l3 3v4h-7z"/><circle cx="6" cy="19" r="1.6"/><circle cx="17.5" cy="19" r="1.6"/></svg>`,
+  bike: `<svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="5.5" cy="17.5" r="3"/><circle cx="18.5" cy="17.5" r="3"/><path d="M5.5 17.5L9 9h5l3 4.5h3M9 9l2 4"/></svg>`,
+  home: `<svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/></svg>`,
+  alert: `<svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 9v4"/><path d="M12 17h.01"/><path d="M10.3 3.9L2.7 17a1.6 1.6 0 001.4 2.4h16a1.6 1.6 0 001.4-2.4L13.7 3.9a1.6 1.6 0 00-2.8 0z"/></svg>`,
+  clock: `<svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>`,
+  user: `<svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg>`,
+  send: `<svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7z"/></svg>`,
+  cash: `<svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="3"/></svg>`,
+  search: `<svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>`,
+  barcode: `<svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 4v16M11 4v16M15 4v10M17.5 4v16"/></svg>`,
+};
 
-  const codOn = el("f-cod-on").checked;
-  el("p-cod-box").classList.toggle("hidden", !codOn);
-  const amt = parseFloat(el("f-cod-amount").value || "0");
-  el("p-cod-amount").textContent = "฿" + (isNaN(amt) ? "0" : amt.toLocaleString("th-TH"));
+function formatDebugArg(a){
+  if(typeof a === "string") return a;
+  try{ return JSON.stringify(a, null, 2); }catch(e){ return String(a); }
+}
+function pushDebugLine(level, args){
+  const panel = document.getElementById("debugContent");
+  if(!panel) return;
+  const text = args.map(formatDebugArg).join(" ");
+  const div = document.createElement("div");
+  div.className = "debug-line" + (level !== "log" ? " " + level : "");
+  const time = new Date().toLocaleTimeString("th-TH", {hour12:false});
+  div.textContent = `[${time}] ${text}`;
+  panel.appendChild(div);
+  panel.scrollTop = panel.scrollHeight;
+}
+function debugLog(...args){ if(!DEBUG) return; console.log("[JT-DEBUG]", ...args); pushDebugLine("log", args); }
+function debugWarn(...args){ if(!DEBUG) return; console.warn("[JT-DEBUG]", ...args); pushDebugLine("warn", args); }
+function debugError(...args){ if(!DEBUG) return; console.error("[JT-DEBUG]", ...args); pushDebugLine("error", args); }
 
-  const tracking = el("f-tracking").value || "-";
-  el("p-tracking").textContent = tracking;
+/* คอลัมน์ตามหัวตารางจริง (ยืดหยุ่นกับหัวตารางในชีต) */
+const COL = {
+  tracking:        "เลขพัสดุ",
+  zone_name:       "ชื่อเขต",
+  branch_name:     "ชื่อสาขานำจ่าย",
+  branch_arrived:  "เวลาที่พัสดุถึงสาขา",
+  delivery_time:   "เวลาที่นำจ่ายพัสดุ",
+  courier_name:    "ชื่อของพนักงานนำจ่าย",
+  courier_phone:   "เบอร์มือถือพนักงานนำจ่ายพัสดุ",
+  pending_time:    "เวลาที่พัสดุตกค้าง",
+  pending_reason:  "สาเหตุพัสดุตกค้าง",
+  problem_time:    "เวลาพัสดุมีปัญหา",
+  problem_reason:  "สาเหตุของพัสดุมีปัญหา",
+  sign_time:       "เวลาเซ็นรับ",
+  sign_branch:     "สาขาเซ็นรับ",
+  signer:          "ผู้เซ็นรับ",
+  parcel_type:     "ประเภทพัสดุ",
+  weight:          "น้ำหนักที่ใช้คิดเงิน",
+  payment_method:  "วิธีการชำระเงิน",
+  shipping_fee:    "ค่าขนส่งทั้งหมด",
+  cod:             "COD",
+  sender_name:     "ผู้ส่ง",
+  sender_source:   "ลูกค้าผู้ส่ง",
+  sender_phone:    "เบอร์โทรผู้ส่ง",
+  recipient_name:  "ผู้รับ",
+  recipient_phone: "เบอร์มือถือผู้รับ",
+  recipient_addr:  "ที่อยู่ผู้รับ",
+  order_source:    "แหล่งที่มาคำสั่งซื้อ",
+};
 
-  el("p-r-name").textContent = el("f-r-name").value || "-";
-  el("p-r-phone").textContent = el("f-r-phone").value || "";
-  el("p-r-addr").textContent = el("f-r-addr").value || "";
+const STATUS_DEFS = {
+  signed:  { label: "เซ็นรับแล้ว",     badge: "badge-signed",  icon: ICON.check },
+  out:     { label: "กำลังนำจ่าย",     badge: "badge-out",     icon: ICON.bike },
+  pending: { label: "ตกค้าง",          badge: "badge-pending", icon: ICON.clock },
+  problem: { label: "มีปัญหา",         badge: "badge-problem", icon: ICON.alert },
+  transit: { label: "อยู่ระหว่างขนส่ง", badge: "badge-transit", icon: ICON.truck },
+};
 
-  el("p-weight").textContent = el("f-weight").value || "-";
-  el("p-type").textContent = el("f-type").value || "-";
-  el("p-ref").textContent = el("f-ref").value || "-";
+/* ===================== STATE ===================== */
+let rawRows = [];
+let headers = [];
+let colMap = {};
+let activeStatus = "ทั้งหมด";
+let searchDebounceTimer = null;
 
-  el("p-s-name").textContent = el("f-s-name").value || "-";
-  el("p-s-phone").textContent = el("f-s-phone").value || "";
-
-  const now = new Date();
-  el("p-date").textContent = now.toLocaleDateString("th-TH", {year:"numeric",month:"short",day:"numeric"});
-
-  renderBarcode(tracking);
-  renderQR(tracking);
+/* ===================== HELPERS ===================== */
+function normalizeHeader(str){
+  return (str || "")
+    .replace(/^\uFEFF/, "")
+    .replace(/[\u200B-\u200D\uFEFF]/g, "")
+    .trim()
+    .replace(/\s+/g, " ");
 }
 
-function renderBarcode(text){
+function parseCSV(text){
+  text = text.replace(/^\uFEFF/, "");
+  const rows = [];
+  let row = [], field = "", inQuotes = false;
+  for(let i = 0; i < text.length; i++){
+    const c = text[i], next = text[i + 1];
+    if(inQuotes){
+      if(c === '"' && next === '"'){ field += '"'; i++; }
+      else if(c === '"'){ inQuotes = false; }
+      else { field += c; }
+    } else {
+      if(c === '"'){ inQuotes = true; }
+      else if(c === ','){ row.push(field); field = ""; }
+      else if(c === '\r'){ /* skip */ }
+      else if(c === '\n'){ row.push(field); rows.push(row); row = []; field = ""; }
+      else { field += c; }
+    }
+  }
+  if(field.length || row.length){ row.push(field); rows.push(row); }
+  return rows.filter(r => r.some(cell => cell.trim() !== ""));
+}
+
+function buildColMap(rawHeaders){
+  const normalizedHeaders = rawHeaders.map(h => ({ raw: h, norm: normalizeHeader(h) }));
+  colMap = {};
+  const missing = [];
+  Object.entries(COL).forEach(([key, expectedName]) => {
+    const expectedNorm = normalizeHeader(expectedName);
+    const found = normalizedHeaders.find(h => h.norm === expectedNorm);
+    if(found){ colMap[key] = found.raw; } else { colMap[key] = null; missing.push(expectedName); }
+  });
+  debugLog("หัวตารางที่อ่านได้จากชีต:", rawHeaders);
+  debugLog("Column map (key -> หัวตารางจริง):", colMap);
+  if(missing.length){ debugWarn("ไม่พบคอลัมน์เหล่านี้ในชีต (ตรวจสอบชื่อหัวตาราง):", missing); }
+}
+
+function val(r, key){
+  const header = colMap[key];
+  if(!header) return "";
+  const v = r[header];
+  if(v === undefined || v === null) return "";
+  const trimmed = String(v).trim();
+  return (trimmed && trimmed !== "-") ? trimmed : "";
+}
+
+function getStatus(r){
+  if(val(r,"sign_time")) return "signed";
+  if(val(r,"problem_time")) return "problem";
+  if(val(r,"pending_time")) return "pending";
+  if(val(r,"delivery_time")) return "out";
+  if(val(r,"branch_arrived")) return "transit";
+  return "transit";
+}
+
+/* ===================== LOAD DATA ===================== */
+async function loadData(){
   try{
-    JsBarcode("#p-barcode", text || "0000000000", {
-      format:"CODE128", lineColor:"#1C1F26", width:2.1, height:56,
-      displayValue:false, margin:0, background:"transparent"
+    debugLog("กำลังโหลดข้อมูลจาก:", CSV_URL);
+    const res = await fetch(CSV_URL, {cache:"no-store"});
+    if(!res.ok) throw new Error("HTTP " + res.status);
+    let text = await res.text();
+    const trimmedStart = text.trim().slice(0, 15).toLowerCase();
+    if(trimmedStart.startsWith("<!doctype") || trimmedStart.startsWith("<html")){
+      throw new Error("ได้รับหน้า HTML แทนไฟล์ CSV — ชีตอาจไม่ได้แชร์แบบ \"ทุกคนที่มีลิงก์ - ดูได้\" หรือ SHEET_ID/GID ไม่ถูกต้อง");
+    }
+    const table = parseCSV(text);
+    debugLog("จำนวนแถวทั้งหมดใน CSV (รวมหัวตาราง):", table.length);
+    if(table.length < 2) throw new Error("ไม่พบข้อมูลในชีต (มีแค่หัวตาราง หรือไม่มีข้อมูลเลย)");
+
+    headers = table[0].map(h => normalizeHeader(h));
+    buildColMap(headers);
+
+    rawRows = table.slice(1).map((r, i) => {
+      const obj = { __idx: i };
+      headers.forEach((h, idx) => { obj[h] = (r[idx] || "").trim(); });
+      return obj;
     });
-  }catch(e){ /* invalid chars — ignore silently in preview */ }
+
+    debugLog("ตัวอย่างแถวแรกที่แปลงแล้ว:", rawRows[0]);
+    debugLog("จำนวนพัสดุที่โหลดได้:", rawRows.length);
+
+    setStatus("ok", `เชื่อมต่อสำเร็จ • ${rawRows.length} พัสดุ`);
+    const now = new Date();
+    document.getElementById("statusSynced").textContent =
+      "อัปเดตล่าสุด " + now.toLocaleTimeString("th-TH", {hour:"2-digit", minute:"2-digit"});
+    buildChips();
+    render();
+  }catch(err){
+    debugError("โหลดข้อมูลล้มเหลว:", err.message || String(err));
+    setStatus("err", "เชื่อมต่อไม่สำเร็จ");
+    document.getElementById("grid").innerHTML = `
+      <div class="error-state">
+        ไม่สามารถโหลดข้อมูลจาก Google Sheet ได้<br>
+        ตรวจสอบว่าชีตตั้งค่าแชร์เป็น <b>"ทุกคนที่มีลิงก์ - ดูได้"</b> และ SHEET_ID / GID ถูกต้อง
+        <code>${err.message}</code>
+      </div>`;
+  }
 }
 
-let qrInstance = null;
-function renderQR(text){
-  const box = el("p-qr");
-  box.innerHTML = "";
+function setStatus(state, text){
+  const dot = document.getElementById("statusDot");
+  dot.className = "status-dot " + state;
+  document.getElementById("statusText").textContent = text;
+}
+
+/* ===================== SKELETON ===================== */
+function renderSkeleton(){
+  const grid = document.getElementById("grid");
+  let html = "";
+  for(let i=0;i<6;i++){
+    html += `
+      <div class="skeleton-card">
+        <div class="skel-line" style="width:70px;height:20px;border-radius:6px;margin-bottom:14px;"></div>
+        <div class="skel-line" style="width:60%;margin-bottom:10px;"></div>
+        <div class="skel-line" style="width:40%;margin-bottom:16px;"></div>
+        <div class="skel-line" style="width:100%;height:6px;margin-bottom:14px;"></div>
+        <div class="skel-line" style="width:80%;"></div>
+      </div>`;
+  }
+  grid.innerHTML = html;
+}
+
+/* ===================== CHIPS ===================== */
+function buildChips(){
+  const row = document.getElementById("chipRow");
+  const counts = { ทั้งหมด: rawRows.length };
+  Object.keys(STATUS_DEFS).forEach(k => counts[k] = 0);
+  rawRows.forEach(r => counts[getStatus(r)]++);
+
+  const all = ["ทั้งหมด", ...Object.keys(STATUS_DEFS)];
+  row.innerHTML = all.map(k => {
+    const label = k === "ทั้งหมด" ? "ทั้งหมด" : STATUS_DEFS[k].label;
+    const count = k === "ทั้งหมด" ? counts.ทั้งหมด : counts[k];
+    return `<div class="chip ${k === activeStatus ? "active" : ""}" data-status="${k}">${label} (${count})</div>`;
+  }).join("");
+
+  row.querySelectorAll(".chip").forEach(chip => {
+    chip.addEventListener("click", () => {
+      activeStatus = chip.dataset.status;
+      row.querySelectorAll(".chip").forEach(c => c.classList.remove("active"));
+      chip.classList.add("active");
+      render();
+    });
+  });
+}
+
+/* ===================== RENDER GRID ===================== */
+function render(){
+  const q = document.getElementById("searchInput").value.trim().toLowerCase();
+  const grid = document.getElementById("grid");
+  document.getElementById("searchClear").classList.toggle("show", q.length > 0);
+
+  const statusLabel = activeStatus === "ทั้งหมด" ? null : STATUS_DEFS[activeStatus].label;
+  const matchingCount = activeStatus === "ทั้งหมด"
+    ? rawRows.length
+    : rawRows.filter(r => getStatus(r) === activeStatus).length;
+
+  if(!q){
+    if(activeStatus === "ทั้งหมด"){
+      document.getElementById("resultCount").innerHTML =
+        `มีพัสดุทั้งหมด <b>${rawRows.length}</b> รายการ — พิมพ์คำค้นหาเพื่อแสดงข้อมูล`;
+      grid.innerHTML = `
+        <div class="empty-state">
+          ${ICON.search}
+          <div class="empty-title">พิมพ์เพื่อค้นหาพัสดุ</div>
+          <div class="empty-sub">ใส่เลขพัสดุ ชื่อผู้รับ ชื่อผู้ส่ง เบอร์โทร หรือที่อยู่ เพื่อดูรายละเอียด — ระบบจะไม่แสดงข้อมูลพัสดุจนกว่าจะค้นหา เพื่อความเป็นส่วนตัวของลูกค้า</div>
+        </div>`;
+    } else {
+      document.getElementById("resultCount").innerHTML =
+        `เลือกสถานะ "<b>${statusLabel}</b>" — พบ ${matchingCount} รายการ พิมพ์คำค้นหาเพื่อดูรายละเอียด`;
+      grid.innerHTML = `
+        <div class="empty-state">
+          ${ICON.search}
+          <div class="empty-title">เลือกสถานะ "${statusLabel}" แล้ว (${matchingCount} รายการ)</div>
+          <div class="empty-sub">พิมพ์เลขพัสดุ ชื่อผู้รับ หรือเบอร์โทร เพื่อดูรายการภายในสถานะนี้</div>
+        </div>`;
+    }
+    return;
+  }
+
+  const filtered = rawRows.filter(r => {
+    const matchesStatus = activeStatus === "ทั้งหมด" || getStatus(r) === activeStatus;
+    if(!matchesStatus) return false;
+    const searchable = Object.keys(r).filter(k => k !== "__idx").map(k => r[k]).join(" ").toLowerCase();
+    return searchable.includes(q);
+  });
+
+  document.getElementById("resultCount").innerHTML =
+    `พบ <b>${filtered.length}</b> พัสดุ จากทั้งหมด ${rawRows.length}`;
+
+  if(filtered.length === 0){
+    grid.innerHTML = `
+      <div class="empty-state">
+        ${ICON.search}
+        <div class="empty-title">ไม่พบพัสดุที่ค้นหา</div>
+        <div class="empty-sub">ลองตรวจสอบการสะกดหรือค้นหาด้วยคำอื่น เช่น เลขพัสดุแบบเต็ม หรือชื่อ-นามสกุลผู้รับ</div>
+      </div>`;
+    return;
+  }
+
+  grid.innerHTML = filtered.map((r, i) => {
+    const status = getStatus(r);
+    const def = STATUS_DEFS[status];
+    const tracking = val(r,"tracking") || "ไม่ระบุเลขพัสดุ";
+    const recipient = val(r,"recipient_name") || "ไม่ระบุผู้รับ";
+    const addr = val(r,"recipient_addr");
+    const sender = val(r,"sender_name");
+    const timeShown = val(r,"sign_time") || val(r,"delivery_time") || val(r,"branch_arrived") || "";
+
+    const isSigned = status === "signed";
+    const isOutOrBeyond = status === "out" || isSigned;
+    const alert = status === "pending"
+      ? `<div class="alert-ribbon is-pending">${ICON.clock}<span>ตกค้าง${val(r,"pending_reason") ? " — " + val(r,"pending_reason") : ""}</span></div>`
+      : status === "problem"
+        ? `<div class="alert-ribbon is-problem">${ICON.alert}<span>มีปัญหา${val(r,"problem_reason") ? " — " + val(r,"problem_reason") : ""}</span></div>`
+        : "";
+
+    const steps = [
+      { key:"created", label:"รับพัสดุ", done:true, current:false },
+      { key:"out", label:"นำจ่าย", done:isOutOrBeyond, current: status==="out" },
+      { key:"signed", label:"เซ็นรับ", done:isSigned, current: isSigned },
+    ];
+    const stepsHtml = steps.map(s => `
+      <div class="mini-step ${s.done ? "done" : ""} ${s.current ? "current" : ""}">
+        <div class="connector"></div>
+        <div class="dot">${ICON.check}</div>
+        <div class="label">${s.label}</div>
+      </div>`).join("");
+
+    return `
+      <div class="card" data-idx="${r.__idx}" style="animation-delay:${Math.min(i,10)*28}ms">
+        <div class="card-top">
+          <span class="status-badge ${def.badge}">${def.icon}${def.label}</span>
+        </div>
+        <div class="card-tracking">${tracking}</div>
+        ${alert}
+        <div class="mini-steps">${stepsHtml}</div>
+        <div class="card-title">ผู้รับ: ${recipient}</div>
+        ${addr ? `<div class="card-sub">${addr}</div>` : ""}
+        <div class="card-meta">
+          <span>${sender ? "จาก: " + sender : ""}</span>
+          <span>${timeShown}</span>
+        </div>
+        <button class="card-barcode-btn" data-tracking="${tracking}">${ICON.barcode}สร้างบาร์โค้ดของพัสดุนี้</button>
+      </div>`;
+  }).join("");
+
+  grid.querySelectorAll(".card").forEach(card => {
+    card.addEventListener("click", (e) => {
+      if(e.target.closest(".card-barcode-btn")) return; // handled separately
+      const idx = Number(card.dataset.idx);
+      const record = rawRows.find(row => row.__idx === idx);
+      if(record){ openModal(record); } else { debugError("ไม่พบข้อมูลของ idx:", idx); }
+    });
+  });
+
+  grid.querySelectorAll(".card-barcode-btn").forEach(btn => {
+    btn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const code = btn.dataset.tracking;
+      if(!code || code === "ไม่ระบุเลขพัสดุ"){
+        debugWarn("พัสดุนี้ไม่มีเลขพัสดุให้สร้างบาร์โค้ด");
+        return;
+      }
+      document.getElementById("barcodeInput").value = code;
+      generateBarcode(code);
+      document.querySelector(".gen-bar").scrollIntoView({ behavior:"smooth", block:"center" });
+    });
+  });
+}
+
+/* ===================== BARCODE GENERATOR ===================== */
+function generateBarcode(rawText, retriesLeft){
+  if(retriesLeft === undefined) retriesLeft = 20; // รอไลบรารีโหลดสูงสุด ~4 วิ (20 x 200ms)
+  const text = (rawText || "").trim();
+  const resultBox = document.getElementById("genResult");
+  const svgEl = document.getElementById("genBarcodeSvg");
+  const label = document.getElementById("genCodeLabel");
+
+  if(!text){
+    debugWarn("ไม่ได้ระบุข้อความ/เลขพัสดุสำหรับสร้างบาร์โค้ด");
+    resultBox.classList.remove("show");
+    return;
+  }
+
+  // ถ้าไลบรารียังไม่พร้อม ให้รอสักครู่แล้วลองใหม่ (มักเกิดตอนเพิ่งโหลดหน้าเสร็จใหม่ๆ)
+  if(typeof JsBarcode === "undefined"){
+    if(retriesLeft > 0){
+      debugWarn("ไลบรารีบาร์โค้ดยังโหลดไม่เสร็จ กำลังรอแล้วลองใหม่... (เหลือ " + retriesLeft + " ครั้ง)");
+      setTimeout(() => generateBarcode(text, retriesLeft - 1), 200);
+      return;
+    }
+    debugError("ไม่สามารถโหลดไลบรารีสร้างบาร์โค้ด (JsBarcode) ได้ — ตรวจสอบการเชื่อมต่ออินเทอร์เน็ต หรือลองรีโหลดหน้านี้ใหม่");
+    label.textContent = "";
+    resultBox.classList.add("show");
+    svgEl.outerHTML = `<svg id="genBarcodeSvg"></svg>`;
+    document.getElementById("genCodeLabel").innerHTML =
+      `<span style="color:#d6362a;">โหลดไลบรารีสร้างบาร์โค้ดไม่สำเร็จ ลองกด F5 รีเฟรชหน้านี้ หรือเปิดแผง 🐞 ด้านล่างขวาเพื่อดูรายละเอียด</span>`;
+    return;
+  }
+
   try{
-    qrInstance = new QRCode(box, {
-      text: text || "0000000000",
-      width: 68, height: 68,
-      colorDark:"#1C1F26", colorLight:"#ffffff",
-      correctLevel: QRCode.CorrectLevel.M
+    JsBarcode(svgEl, text, {
+      format: "CODE128",
+      lineColor: "#15151a",
+      width: 2.4,
+      height: 82,
+      displayValue: true,
+      fontOptions: "600",
+      font: "Prompt, sans-serif",
+      fontSize: 16,
+      textMargin: 6,
+      margin: 8,
+      background: "#ffffff",
     });
-  }catch(e){ /* library may still be loading */ }
+    label.textContent = "Code128: " + text;
+    resultBox.classList.add("show");
+    debugLog("สร้างบาร์โค้ดสำเร็จสำหรับข้อความ:", text);
+  }catch(err){
+    debugError("สร้างบาร์โค้ดล้มเหลว (อาจเป็นเพราะอักขระที่ Code128 รองรับไม่ได้):", err.message || String(err));
+    label.innerHTML = `<span style="color:#d6362a;">ไม่สามารถสร้างบาร์โค้ดได้: ${err.message || "ข้อผิดพลาดไม่ทราบสาเหตุ"}</span>`;
+    resultBox.classList.add("show");
+  }
 }
 
-document.querySelectorAll("#label ~ *, .controls input, .controls select, .controls textarea").forEach(()=>{});
-document.querySelectorAll(".controls input, .controls select, .controls textarea").forEach(input=>{
-  input.addEventListener("input", refresh);
-  input.addEventListener("change", refresh);
+document.getElementById("genBarcodeBtn").addEventListener("click", () => {
+  generateBarcode(document.getElementById("barcodeInput").value);
+});
+document.getElementById("barcodeInput").addEventListener("keydown", (e) => {
+  if(e.key === "Enter") generateBarcode(document.getElementById("barcodeInput").value);
+});
+document.getElementById("genFromLatestBtn").addEventListener("click", () => {
+  if(!rawRows.length){ debugWarn("ยังไม่มีข้อมูลพัสดุโหลดเข้าระบบ"); return; }
+  const latest = rawRows[rawRows.length - 1];
+  const tracking = val(latest, "tracking");
+  if(!tracking){ debugWarn("แถวล่าสุดไม่มีเลขพัสดุ"); return; }
+  document.getElementById("barcodeInput").value = tracking;
+  generateBarcode(tracking);
+});
+document.getElementById("genClearBtn").addEventListener("click", () => {
+  document.getElementById("genResult").classList.remove("show");
+  document.getElementById("barcodeInput").value = "";
+});
+document.getElementById("genDownloadBtn").addEventListener("click", () => {
+  const svgEl = document.getElementById("genBarcodeSvg");
+  const svgData = new XMLSerializer().serializeToString(svgEl);
+  const svgBlob = new Blob([svgData], { type: "image/svg+xml;charset=utf-8" });
+  const url = URL.createObjectURL(svgBlob);
+  const img = new Image();
+  img.onload = () => {
+    const canvas = document.createElement("canvas");
+    canvas.width = img.width || svgEl.width.baseVal.value || 400;
+    canvas.height = img.height || svgEl.height.baseVal.value || 140;
+    const ctx = canvas.getContext("2d");
+    ctx.fillStyle = "#ffffff";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.drawImage(img, 0, 0);
+    URL.revokeObjectURL(url);
+    const a = document.createElement("a");
+    a.download = "barcode.png";
+    a.href = canvas.toDataURL("image/png");
+    a.click();
+  };
+  img.src = url;
+});
+document.getElementById("genPrintBtn").addEventListener("click", () => {
+  const svgEl = document.getElementById("genBarcodeSvg");
+  const svgData = new XMLSerializer().serializeToString(svgEl);
+  const w = window.open("", "_blank", "width=420,height=300");
+  w.document.write(`<html><head><title>พิมพ์บาร์โค้ด</title></head><body style="display:flex;align-items:center;justify-content:center;height:100vh;margin:0;">${svgData}</body></html>`);
+  w.document.close();
+  w.focus();
+  setTimeout(() => { w.print(); }, 300);
 });
 
-el("btn-random-tracking").addEventListener("click", ()=>{
-  const rand = "TH" + Math.floor(2000000000 + Math.random()*900000000);
-  el("f-tracking").value = rand;
-  refresh();
+/* ===================== MODAL ===================== */
+function fieldRow(label, value){
+  if(!value) return "";
+  return `<div class="field-row"><span class="field-label">${label}</span><span class="field-value">${value}</span></div>`;
+}
+
+function buildTimeline(r){
+  const events = [];
+
+  events.push({ icon: ICON.box, label:"รับพัสดุเข้าระบบ", time:"", state:"done" });
+
+  if(val(r,"branch_arrived")){
+    events.push({ icon: ICON.truck, label:"พัสดุถึงสาขา" + (val(r,"branch_name") ? " " + val(r,"branch_name") : ""), time: val(r,"branch_arrived"), state:"done" });
+  }
+  if(val(r,"delivery_time")){
+    const courier = val(r,"courier_name");
+    events.push({
+      icon: ICON.bike, label:"กำลังนำจ่ายพัสดุ", time: val(r,"delivery_time"), state:"done",
+      detail: courier ? `พนักงานนำจ่าย: ${courier}${val(r,"courier_phone") ? " · " + val(r,"courier_phone") : ""}` : ""
+    });
+  }
+  if(val(r,"pending_time")){
+    events.push({ icon: ICON.clock, label:"พัสดุตกค้าง", time: val(r,"pending_time"), state:"warn", detail: val(r,"pending_reason") });
+  }
+  if(val(r,"problem_time")){
+    events.push({ icon: ICON.alert, label:"พัสดุมีปัญหา", time: val(r,"problem_time"), state:"danger", detail: val(r,"problem_reason") });
+  }
+  if(val(r,"sign_time")){
+    events.push({
+      icon: ICON.check, label:"เซ็นรับสำเร็จ", time: val(r,"sign_time"), state:"success",
+      detail: val(r,"signer") ? `ผู้เซ็นรับ: ${val(r,"signer")}${val(r,"sign_branch") ? " · " + val(r,"sign_branch") : ""}` : ""
+    });
+  }
+
+  return events.map((e, i) => {
+    const stateClass = e.state === "done" ? "done" : e.state === "success" ? "done success" : e.state;
+    return `
+      <div class="tl-item ${stateClass}">
+        <div class="tl-line"></div>
+        <div class="tl-node"><div class="tl-dot">${e.icon}</div></div>
+        <div class="tl-content">
+          <div class="tl-label">${e.label}</div>
+          ${e.time ? `<div class="tl-time">${e.time}</div>` : ""}
+          ${e.detail ? `<div class="tl-detail">${e.detail}</div>` : ""}
+        </div>
+      </div>`;
+  }).join("");
+}
+
+function openModal(r){
+  if(!r){ debugLog("openModal ถูกเรียกโดยไม่มีข้อมูล record"); return; }
+  debugLog("เปิด popup สำหรับแถว:", r);
+
+  const status = getStatus(r);
+  const def = STATUS_DEFS[status];
+  const tracking = val(r,"tracking") || "ไม่ระบุเลขพัสดุ";
+
+  const recipientRows = [
+    fieldRow("ชื่อผู้รับ", val(r,"recipient_name")),
+    fieldRow("เบอร์โทร", val(r,"recipient_phone")),
+    fieldRow("ที่อยู่", val(r,"recipient_addr")),
+  ].filter(Boolean).join("");
+
+  const senderRows = [
+    fieldRow("ชื่อผู้ส่ง", val(r,"sender_name")),
+    fieldRow("ร้าน/ลูกค้า", val(r,"sender_source")),
+    fieldRow("เบอร์โทร", val(r,"sender_phone")),
+    fieldRow("แหล่งที่มาคำสั่งซื้อ", val(r,"order_source")),
+  ].filter(Boolean).join("");
+
+  const pills = [
+    val(r,"parcel_type") ? `<div class="summary-pill"><span class="pill-label">ประเภท</span><b>${val(r,"parcel_type")}</b></div>` : "",
+    val(r,"weight") ? `<div class="summary-pill"><span class="pill-label">น้ำหนัก</span><b>${val(r,"weight")}</b></div>` : "",
+    val(r,"payment_method") ? `<div class="summary-pill"><span class="pill-label">ชำระเงิน</span><b>${val(r,"payment_method")}</b></div>` : "",
+    val(r,"shipping_fee") ? `<div class="summary-pill"><span class="pill-label">ค่าขนส่ง</span><b>${val(r,"shipping_fee")}</b></div>` : "",
+    val(r,"cod") ? `<div class="summary-pill"><span class="pill-label">COD</span><b>${val(r,"cod")}</b></div>` : "",
+  ].filter(Boolean).join("");
+
+  const infoGrid = (recipientRows || senderRows) ? `
+    <div class="info-grid">
+      ${recipientRows ? `
+        <div class="info-panel">
+          <div class="info-panel-title">${ICON.home}ผู้รับ</div>
+          ${recipientRows}
+        </div>` : ""}
+      ${senderRows ? `
+        <div class="info-panel">
+          <div class="info-panel-title">${ICON.send}ผู้ส่ง</div>
+          ${senderRows}
+        </div>` : ""}
+    </div>` : "";
+
+  const hasAnything = recipientRows || senderRows || pills;
+
+  document.getElementById("modalBody").innerHTML = `
+    <div class="modal-head">
+      <button class="modal-close" id="closeModal">✕</button>
+      <span class="status-badge ${def.badge}">${def.icon}${def.label}</span>
+      <div class="modal-tracking">${tracking}</div>
+      <div class="modal-sub">รายละเอียดการติดตามพัสดุ</div>
+    </div>
+    <div class="modal-body">
+      ${hasAnything ? "" : `<div class="modal-empty-note">ไม่มีข้อมูลเพิ่มเติมสำหรับพัสดุนี้</div>`}
+      <div class="modal-columns">
+        <div class="modal-col-left">
+          <div class="modal-barcode-box">
+            <svg id="modalBarcodeSvg"></svg>
+            <div class="bc-caption">บาร์โค้ด Code128 ของเลขพัสดุนี้</div>
+            <div class="modal-barcode-actions">
+              <button class="bc-mini-btn" id="modalBarcodeDownload">ดาวน์โหลด PNG</button>
+              <button class="bc-mini-btn" id="modalBarcodePrint">พิมพ์</button>
+            </div>
+          </div>
+          <div class="timeline">
+            <div class="tl-heading">ไทม์ไลน์การจัดส่ง</div>
+            ${buildTimeline(r)}
+          </div>
+        </div>
+        <div class="modal-col-right">
+          ${infoGrid}
+          ${pills ? `<div class="summary-strip">${pills}</div>` : ""}
+        </div>
+      </div>
+    </div>
+  `;
+
+  const overlay = document.getElementById("overlay");
+  overlay.classList.add("show");
+  document.getElementById("closeModal").addEventListener("click", closeModal);
+
+  if(tracking && tracking !== "ไม่ระบุเลขพัสดุ"){
+    renderModalBarcode(tracking, 20);
+  }
+
+  const dlBtn = document.getElementById("modalBarcodeDownload");
+  const prBtn = document.getElementById("modalBarcodePrint");
+  if(dlBtn){
+    dlBtn.addEventListener("click", () => {
+      const svgEl = document.getElementById("modalBarcodeSvg");
+      const svgData = new XMLSerializer().serializeToString(svgEl);
+      const svgBlob = new Blob([svgData], { type: "image/svg+xml;charset=utf-8" });
+      const url = URL.createObjectURL(svgBlob);
+      const img = new Image();
+      img.onload = () => {
+        const canvas = document.createElement("canvas");
+        canvas.width = img.width || 400;
+        canvas.height = img.height || 120;
+        const ctx = canvas.getContext("2d");
+        ctx.fillStyle = "#ffffff";
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        ctx.drawImage(img, 0, 0);
+        URL.revokeObjectURL(url);
+        const a = document.createElement("a");
+        a.download = `barcode-${tracking}.png`;
+        a.href = canvas.toDataURL("image/png");
+        a.click();
+      };
+      img.src = url;
+    });
+  }
+  if(prBtn){
+    prBtn.addEventListener("click", () => {
+      const svgEl = document.getElementById("modalBarcodeSvg");
+      const svgData = new XMLSerializer().serializeToString(svgEl);
+      const w = window.open("", "_blank", "width=420,height=300");
+      w.document.write(`<html><head><title>พิมพ์บาร์โค้ด</title></head><body style="display:flex;align-items:center;justify-content:center;height:100vh;margin:0;">${svgData}</body></html>`);
+      w.document.close();
+      w.focus();
+      setTimeout(() => { w.print(); }, 300);
+    });
+  }
+}
+
+function renderModalBarcode(tracking, retriesLeft){
+  const svgEl = document.getElementById("modalBarcodeSvg");
+  if(!svgEl) return; // ผู้ใช้อาจปิด popup ไปแล้วก่อนไลบรารีโหลดเสร็จ
+
+  if(typeof JsBarcode === "undefined"){
+    if(retriesLeft > 0){
+      setTimeout(() => renderModalBarcode(tracking, retriesLeft - 1), 200);
+      return;
+    }
+    debugError("ไม่สามารถโหลดไลบรารีสร้างบาร์โค้ดสำหรับ popup ได้");
+    const caption = document.querySelector(".bc-caption");
+    if(caption) caption.innerHTML = `<span style="color:#d6362a;">โหลดไลบรารีบาร์โค้ดไม่สำเร็จ ลองรีเฟรชหน้านี้</span>`;
+    return;
+  }
+
+  try{
+    JsBarcode(svgEl, tracking, {
+      format: "CODE128",
+      lineColor: "#15151a",
+      width: 2.1,
+      height: 70,
+      displayValue: true,
+      fontOptions: "600",
+      font: "Prompt, sans-serif",
+      fontSize: 14,
+      textMargin: 5,
+      margin: 6,
+      background: "#ffffff",
+    });
+  }catch(err){
+    debugError("สร้างบาร์โค้ดใน popup ล้มเหลว:", err.message || String(err));
+    const caption = document.querySelector(".bc-caption");
+    if(caption) caption.innerHTML = `<span style="color:#d6362a;">ไม่สามารถสร้างบาร์โค้ดได้: ${err.message || ""}</span>`;
+  }
+}
+
+function closeModal(){ document.getElementById("overlay").classList.remove("show"); }
+
+document.getElementById("overlay").addEventListener("click", (e) => { if(e.target.id === "overlay") closeModal(); });
+document.addEventListener("keydown", (e) => { if(e.key === "Escape") closeModal(); });
+
+/* debounced search */
+document.getElementById("searchInput").addEventListener("input", () => {
+  const spinner = document.getElementById("searchSpinner");
+  spinner.classList.add("show");
+  if(searchDebounceTimer) clearTimeout(searchDebounceTimer);
+  searchDebounceTimer = setTimeout(() => {
+    render();
+    spinner.classList.remove("show");
+  }, SEARCH_DEBOUNCE_MS);
+});
+document.getElementById("searchClear").addEventListener("click", () => {
+  const input = document.getElementById("searchInput");
+  input.value = "";
+  input.focus();
+  render();
 });
 
-el("btn-print").addEventListener("click", ()=> window.print());
-
-el("btn-png").addEventListener("click", async ()=>{
-  const node = el("label");
-  const svgData = new XMLSerializer().serializeToString(node);
-  // Fallback simple export: rasterize via SVG->canvas is non-trivial for full HTML node without extra libs,
-  // so we guide the user to use Print > Save as PDF for a crisp, cut-ready file instead.
-  alert("แนะนำให้ใช้ปุ่ม 'พิมพ์ใบปะหน้า' แล้วเลือกบันทึกเป็น PDF จากหน้าต่างพิมพ์ของเบราว์เซอร์ เพื่อความคมชัดของบาร์โค้ดและ QR Code");
+/* ===================== DEBUG PANEL ===================== */
+document.getElementById("debugToggle").addEventListener("click", () => {
+  document.getElementById("debugPanel").classList.toggle("show");
+});
+document.getElementById("debugClear").addEventListener("click", () => {
+  document.getElementById("debugContent").innerHTML = "";
 });
 
-// wait for libraries then do first render (they load async from cdnjs)
-window.addEventListener("load", ()=>{
-  setTimeout(refresh, 250);
-});
-refresh();
+/* ===================== INIT ===================== */
+renderSkeleton();
+loadData();
 </script>
 </body>
 </html>
