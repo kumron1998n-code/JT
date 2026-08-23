@@ -3539,7 +3539,7 @@ exports.qrToImageData = function qrToImageData (imgData, qr, opts) {
         <div class="lp-controls">
           <div class="lp-group">
             <div class="lp-group-title">แบรนด์ &amp; บริการ</div>
-            <div class="lp-field"><label>ชื่อร้าน / แบรนด์</label><input id="lpf-brand" value="ร้านของคุณ"></div>
+            <div class="lp-field"><label>ชื่อร้าน / แบรนด์</label><input id="lpf-brand" value="70Sawi06"></div>
             <div class="lp-row2">
               <div class="lp-field"><label>ประเภทบริการ</label>
                 <select id="lpf-service"><option>มาตรฐาน</option><option>ด่วน</option><option>ด่วนพิเศษ</option></select>
@@ -3591,7 +3591,7 @@ exports.qrToImageData = function qrToImageData (imgData, qr, opts) {
               <button class="modal-close" style="visibility:hidden;">✕</button>
               <span class="status-badge badge-transit" id="lpp-service">มาตรฐาน</span>
               <div class="modal-tracking" id="lpp-tracking">-</div>
-              <div class="modal-sub" id="lpp-brand">ร้านของคุณ</div>
+              <div class="modal-sub" id="lpp-brand">70Sawi06</div>
             </div>
             <div class="modal-body" style="padding-top:18px;">
 
@@ -4372,7 +4372,7 @@ function openLabelPrint(row){
   const codVal = val(row,"cod");
   const hasCod = !!codVal;
 
-  lpEl("lpf-brand").value = "ร้านของคุณ";
+  lpEl("lpf-brand").value = "70Sawi06";
   lpEl("lpf-service").value = "มาตรฐาน";
   lpEl("lpf-route").value = val(row,"branch_name") || val(row,"zone_name") || "-";
   lpEl("lpf-cod-on").checked = hasCod;
@@ -4381,7 +4381,7 @@ function openLabelPrint(row){
   lpEl("lpf-r-name").value = val(row,"recipient_name") || "-";
   lpEl("lpf-r-phone").value = val(row,"recipient_phone") || "-";
   lpEl("lpf-r-addr").value = val(row,"recipient_addr") || "-";
-  lpEl("lpf-s-name").value = val(row,"sender_name") || "ร้านของคุณ";
+  lpEl("lpf-s-name").value = val(row,"sender_name") || "70Sawi06";
   lpEl("lpf-s-phone").value = val(row,"sender_phone") || "-";
   lpEl("lpf-weight").value = val(row,"weight") || "-";
   lpEl("lpf-type").value = val(row,"parcel_type") || "-";
@@ -4392,7 +4392,7 @@ function openLabelPrint(row){
 }
 
 function lpRefresh(){
-  const brand = lpEl("lpf-brand").value || "ร้านของคุณ";
+  const brand = lpEl("lpf-brand").value || "70Sawi06";
   const service = lpEl("lpf-service").value || "มาตรฐาน";
   const route = lpEl("lpf-route").value || "-";
   const tracking = lpEl("lpf-tracking").value || "-";
