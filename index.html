@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ไม่มีสิทธิ์เข้าถึง | Xenon Studio</title>
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0c1220;
+  --fg:#f3f6ff;
+  --muted:#aab6d3;
+  --accent:#ff5a4d;
+  --line:#2a3552;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+:root:not([data-theme="light"]){color-scheme:dark}
+*,*::before,*::after{box-sizing:inherit}
+html{height:100%;scroll-padding-top:env(safe-area-inset-top,0px)}
+body{
+  margin:0;height:100%;
+  background:var(--bg);color:var(--fg);
+  font-family:"Kanit","Sarabun","Noto Sans Thai",system-ui,sans-serif;
+  display:flex;align-items:center;justify-content:center;
+  text-align:center;
+}
+main{
+  width:100%;min-height:100%;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:clamp(18px,3.5vh,40px);
+  padding:clamp(20px,5vw,72px);
+  border-left:clamp(8px,1.4vw,22px) solid var(--accent);
+}
+.lock{font-size:clamp(64px,12vw,160px);line-height:1}
+h1{
+  margin:0;font-weight:800;
+  font-size:clamp(34px,7.2vw,110px);
+  line-height:1.2;
+  color:var(--accent);
+}
+p{
+  margin:0;font-weight:600;
+  font-size:clamp(24px,4.6vw,72px);
+  line-height:1.4;
+  max-width:22em;
+}
+p b{font-weight:800;color:var(--accent)}
+.reason{
+  font-weight:400;color:var(--muted);
+  font-size:clamp(20px,3.4vw,52px);
+  border-top:2px solid var(--line);
+  padding-top:clamp(16px,3vh,36px);
+}
+.copy{font-size:clamp(16px,2.2vw,32px);color:var(--muted);font-weight:400}
+</style>
+</head>
+<body>
+<main>
+  <div class="lock" aria-hidden="true">🔒</div>
+  <h1>เนื่องจากคุณไม่มีสิทธิ์เข้าถึง</h1>
+  <p>นอกจากได้รับอนุญาตจากทีมงาน <b>Xenon Studio</b></p>
+  <p class="reason">ขอสงวนลิขสิทธิ์ เพราะทีมงานต้องใช้ค่าใช้จ่ายเยอะ</p>
+  <div class="copy">© Xenon Studio สงวนลิขสิทธิ์</div>
+</main>
+</body>
+</html>
