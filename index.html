@@ -3,66 +3,98 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>ไม่มีสิทธิ์เข้าถึง | Xenon Studio</title>
+<title>⚠ ไม่มีสิทธิ์เข้าถึง | Xenon Studio</title>
 <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;600;800&display=swap" rel="stylesheet">
 <style>
-:root{
-  --bg:#0c1220;
-  --fg:#f3f6ff;
-  --muted:#aab6d3;
-  --accent:#ff5a4d;
-  --line:#2a3552;
-  box-sizing:border-box;
-  padding-top:env(safe-area-inset-top,0px);
-  padding-bottom:env(safe-area-inset-bottom,0px);
-}
-:root:not([data-theme="light"]){color-scheme:dark}
+:root{--red:#d90f0f;--dark:#14060a;--fg:#fff;--yellow:#ffe14d;box-sizing:border-box}
 *,*::before,*::after{box-sizing:inherit}
-html{height:100%;scroll-padding-top:env(safe-area-inset-top,0px)}
+html,body{height:100%;margin:0}
 body{
-  margin:0;height:100%;
-  background:var(--bg);color:var(--fg);
   font-family:"Kanit","Sarabun","Noto Sans Thai",system-ui,sans-serif;
-  display:flex;align-items:center;justify-content:center;
-  text-align:center;
+  color:var(--fg);text-align:center;
+  background:var(--red);
+  animation:flash .9s steps(1,end) infinite;
+  overflow:hidden;
 }
+@keyframes flash{0%{background:var(--red)}50%{background:var(--dark)}}
+@keyframes blinkText{0%{opacity:1}50%{opacity:.15}}
 main{
-  width:100%;min-height:100%;
-  display:flex;flex-direction:column;align-items:center;justify-content:center;
-  gap:clamp(18px,3.5vh,40px);
-  padding:clamp(20px,5vw,72px);
-  border-left:clamp(8px,1.4vw,22px) solid var(--accent);
+  height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:clamp(14px,3vh,36px);
+  padding:max(clamp(16px,4vw,60px),env(safe-area-inset-top,0px)) clamp(16px,4vw,60px) max(clamp(16px,4vw,60px),env(safe-area-inset-bottom,0px));
+  border:clamp(8px,1.6vw,24px) dashed var(--yellow);
+  animation:blinkText .9s steps(1,end) infinite;
 }
-.lock{font-size:clamp(64px,12vw,160px);line-height:1}
-h1{
-  margin:0;font-weight:800;
-  font-size:clamp(34px,7.2vw,110px);
-  line-height:1.2;
-  color:var(--accent);
+.icon{font-size:clamp(70px,14vw,190px);line-height:1}
+h1{margin:0;font-weight:800;font-size:clamp(34px,7.4vw,115px);line-height:1.2;color:var(--yellow)}
+p{margin:0;font-weight:600;font-size:clamp(24px,4.8vw,76px);line-height:1.35;max-width:22em}
+p b{font-weight:800;color:var(--yellow)}
+.reason{font-size:clamp(22px,3.8vw,60px)}
+#gate{
+  position:fixed;inset:0;z-index:10;display:none;
+  align-items:center;justify-content:center;flex-direction:column;gap:16px;
+  background:rgba(0,0,0,.88);color:#fff;font-size:clamp(26px,5vw,64px);font-weight:800;cursor:pointer;
 }
-p{
-  margin:0;font-weight:600;
-  font-size:clamp(24px,4.6vw,72px);
-  line-height:1.4;
-  max-width:22em;
-}
-p b{font-weight:800;color:var(--accent)}
-.reason{
-  font-weight:400;color:var(--muted);
-  font-size:clamp(20px,3.4vw,52px);
-  border-top:2px solid var(--line);
-  padding-top:clamp(16px,3vh,36px);
-}
-.copy{font-size:clamp(16px,2.2vw,32px);color:var(--muted);font-weight:400}
+#gate small{font-size:.45em;font-weight:400;color:#ccc}
 </style>
 </head>
 <body>
 <main>
-  <div class="lock" aria-hidden="true">🔒</div>
+  <div class="icon" aria-hidden="true">🚨</div>
   <h1>เนื่องจากคุณไม่มีสิทธิ์เข้าถึง</h1>
   <p>นอกจากได้รับอนุญาตจากทีมงาน <b>Xenon Studio</b></p>
   <p class="reason">ขอสงวนลิขสิทธิ์ เพราะทีมงานต้องใช้ค่าใช้จ่ายเยอะ</p>
-  <div class="copy">© Xenon Studio สงวนลิขสิทธิ์</div>
 </main>
+
+<div id="gate" role="button" tabindex="0">🔊 แตะที่หน้าจอเพื่อดำเนินการต่อ<small>(เบราว์เซอร์ต้องมีการแตะก่อนจึงจะเล่นเสียงได้)</small></div>
+
+<script>
+(function(){
+  var ctx=null,osc=null,gain=null,timer=null,muted=false,started=false;
+  var gate=document.getElementById('gate');
+
+  function startSiren(){
+    try{
+      if(!ctx){
+        var AC=window.AudioContext||window.webkitAudioContext;
+        if(!AC)return;
+        ctx=new AC();
+        osc=ctx.createOscillator();
+        gain=ctx.createGain();
+        osc.type='sawtooth';
+        gain.gain.value=0.6;
+        osc.connect(gain);gain.connect(ctx.destination);
+        osc.start();
+        var hi=false;
+        function sweep(){
+          if(!ctx)return;
+          var t=ctx.currentTime;
+          osc.frequency.cancelScheduledValues(t);
+          osc.frequency.setValueAtTime(hi?1300:650,t);
+          osc.frequency.linearRampToValueAtTime(hi?650:1300,t+0.45);
+          hi=!hi;
+        }
+        sweep();
+        timer=setInterval(sweep,450);
+      }
+      if(ctx.state==='suspended'){
+        ctx.resume().then(function(){started=ctx.state==='running';gate.style.display=started?'none':'flex'});
+      }else{started=true;gate.style.display='none';}
+    }catch(e){gate.style.display='flex';}
+  }
+
+  function unlock(){ if(!muted){startSiren();} }
+  ['click','touchstart','keydown'].forEach(function(ev){
+    gate.addEventListener(ev,unlock);
+    document.addEventListener(ev,unlock);
+  });
+
+  // พยายามเล่นทันทีเมื่อโหลดหน้า ถ้าถูกบล็อกจะแสดงหน้าให้แตะ
+  startSiren();
+  setTimeout(function(){
+    if(!started&&!muted)gate.style.display='flex';
+  },300);
+})();
+</script>
 </body>
 </html>
